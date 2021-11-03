@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>게시판_2</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<link
+			href="https://proxy.goorm.io/ovenapp/static/package/view.min.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<script src="https://proxy.goorm.io/ovenapp/static/package/view-resource.min.js"></script>
+		<script>
+			screenWidth = 360;
+			screenHeight = 600;
+			projectId = "AdYE9ojVBLKHWGh8sJ3RMF8Cbme0VfYr";
+			sequenceId = "JSrAM";
+		</script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			#webView {
+				overflow: hidden;
+				position: relative;
+				background: #ffffff;
+				width: 360px;
+				height: 600px;
+				margin: 0 auto;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+
+			#webView[data-show-memo="true"] {
+				overflow: visible;
+			}
+
+			[data-text-content] {
+				white-space: normal;
+			}
+		</style>
+	</head>
+
+	<body data-locale="ko">
+		<div
+			id="webView"
+			data-canvas="true"
+			data-show-memo="false"
+			data-show-link="false"
+			title="페이지에 링크가 연결된 객체가 있을 경우 화면을 터치/클릭하면 표시됩니다."
+		>
+			<div
+				data-obj-id="ZidEQ"
+				data-obj-type="element"
+				class=""
+				style="position: absolute; top: 516px; left: 0px; width: 360px; height: 20px;"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/line-horizontal.svg);
+					"
+				></div></div
+			><div
+				data-obj-id="DWxWy"
+				data-obj-type="image"
+				class=""
+				style="position: absolute; top: -1px; left: 102px; width: 167px; height: 66px;"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/imagefarm/101060418/2d7lRzooDrJzP3SvrXChiwQfTMakc2ak);
+					"
+				></div></div
+			><div
+				data-obj-id="ad7aw"
+				data-obj-type="icon"
+				class=""
+				style="position: absolute; top: 7px; left: 14px; width: 48px; height: 52px;"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					width="32"
+					height="32"
+					viewBox="0 0 32 32"
+					fill="#000000"
+					data-svg-content="true"
+				>
+					<g>
+						<path
+							d="M 7,16l 18,0 C 25.552,16, 26,15.552, 26,15C 26,14.448, 25.552,14, 25,14l-18,0 C 6.448,14, 6,14.448, 6,15 C 6,15.552, 6.448,16, 7,16zM 7,10l 18,0 C 25.552,10, 26,9.552, 26,9C 26,8.448, 25.552,8, 25,8l-18,0 C 6.448,8, 6,8.448, 6,9 C 6,9.552, 6.448,10, 7,10zM 7,22l 18,0 c 0.552,0, 1-0.448, 1-1c0-0.552-0.448-1-1-1l-18,0 C 6.448,20, 6,20.448, 6,21 C 6,21.552, 6.448,22, 7,22z"
+						></path>
+					</g></svg></div
+			><div
+				data-obj-id="916ih"
+				data-obj-type="icon"
+				class=""
+				style="position: absolute; top: 10px; left: 302px; width: 46px; height: 46px;"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					width="32"
+					height="33.762001037597656"
+					viewBox="0 0 32 33.762001037597656"
+					fill="#000000"
+					data-svg-content="true"
+				>
+					<g>
+						<path
+							d="M 22,6c0-3.212-2.788-6-6-6S 10,2.788, 10,6c0,3.212, 2.788,6, 6,6S 22,9.212, 22,6zM 16,14c-5.256,0-10,5.67-10,12.716s 20,7.046, 20,0S 21.256,14, 16,14z"
+						></path>
+					</g></svg></div
+			><div
+				data-obj-id="9ab9h"
+				data-obj-type="element"
+				class=""
+				style="position: absolute; top: 52px; left: 0px; width: 360px; height: 20px;"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/line-horizontal.svg);
+					"
+				></div></div
+			><div
+				data-obj-id="ln9bC"
+				data-obj-type="element"
+				class=""
+				style="position: absolute; top: 92px; left: 0px; width: 360px; height: 20px;"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/line-horizontal.svg);
+					"
+				></div></div
+			><div
+				data-obj-id="dHOZ2"
+				data-obj-type="element"
+				data-text-editable="true"
+				class=""
+				style="position: absolute; top: 71px; left: 13px; width: 52px; height: 27px;"
+				><div
+					data-text-content="true"
+					style="font-weight: normal; font-size: 14px;"
+					class=""
+					>카테고리</div
+				> </div
+			><div
+				data-obj-id="pu4jJ"
+				data-obj-type="element"
+				class=""
+				style="position: absolute; top: 171px; left: 0.5px; width: 360px; height: 20px;"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/line-horizontal.svg);
+					"
+				></div></div
+			><div
+				data-obj-id="JFrm8"
+				data-obj-type="element"
+				class=""
+				style="position: absolute; top: 259px; left: 0px; width: 360px; height: 20px;"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/line-horizontal.svg);
+					"
+				></div></div
+			><div
+				data-obj-id="3slGH"
+				data-obj-type="element"
+				class=""
+				style="position: absolute; top: 345px; left: 0px; width: 360px; height: 20px;"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/line-horizontal.svg);
+					"
+				></div></div
+			><div
+				data-obj-id="lOCcQ"
+				data-obj-type="element"
+				class=""
+				style="position: absolute; top: 437px; left: 0px; width: 360px; height: 19px;"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/line-horizontal.svg);
+					"
+				></div></div
+			><div
+				data-obj-id="lP3dF"
+				data-obj-type="group"
+				class=""
+				style="position: absolute; top: 107px; left: 338px; width: 22px; height: 493px;"
+				><div
+					data-obj-id="QCZOB"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="position: absolute; top: 0px; left: 0px; width: 22px; height: 493px;"
+					><div
+						data-text-content="true"
+						style="background-color: rgb(241, 241, 241);"
+					></div>
+					<div
+						style="
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							width: 100%;
+							height: 20px;
+							background-color: rgb(241, 241, 241);
+						"
+						><svg
+							xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink"
+							width="32"
+							height="32"
+							viewBox="0 0 32 32"
+							fill="rgb(158, 158, 158)"
+							data-svg-content="true"
+						>
+							<g>
+								<path
+									d="M 16.682,19.674c 0.010-0.012, 0.014-0.028, 0.024-0.040l 6.982-7.714c 0.39-0.434, 0.39-1.138,0-1.572 c-0.004-0.004-0.008-0.006-0.012-0.008C 23.496,10.13, 23.244,10, 22.964,10L 8.998,10 c-0.286,0-0.54,0.138-0.722,0.352L 8.272,10.348 c-0.39,0.434-0.39,1.138,0,1.572l 6.998,7.754C 15.66,20.108, 16.292,20.108, 16.682,19.674z"
+								></path>
+							</g></svg
+					></div>
+					<div
+						style="
+							position: absolute;
+							top: 0px;
+							left: 0;
+							width: 100%;
+							height: 20px;
+							background-color: rgb(241, 241, 241);
+						"
+						><svg
+							xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink"
+							width="32"
+							height="32"
+							viewBox="0 0 32 32"
+							fill="rgb(158, 158, 158)"
+							data-svg-content="true"
+						>
+							<g>
+								<path
+									d="M 8.998,20l 13.966,0 c 0.286,0, 0.54-0.138, 0.72-0.352l 0.004,0.004c 0.39-0.434, 0.39-1.138,0-1.572L 16.69,10.326 c-0.39-0.434-1.022-0.434-1.41,0c-0.010,0.012-0.014,0.028-0.024,0.040L 8.272,18.080c-0.39,0.434-0.39,1.138,0,1.572 C 8.276,19.656, 8.28,19.658, 8.284,19.662C 8.466,19.87, 8.716,20, 8.998,20z"
+								></path>
+							</g></svg
+					></div>
+				</div>
+				<div
+					data-obj-id="YiMiI"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="
+						position: absolute;
+						top: 46.1874px;
+						left: 0px;
+						width: 22px;
+						height: 173.705px;
+					"
+					><div
+						data-text-content="true"
+						style="background-color: rgb(214, 214, 214);"
+					></div
+				></div> </div
+			><div
+				data-obj-id="QA1wy"
+				data-obj-type="element"
+				class=""
+				style="position: absolute; top: 457px; left: 14px; width: 63px; height: 63px;"
+				data-released-from-group="H42PN"
+				><div
+					data-image-content="true"
+					style="
+						background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/wireframe.svg);
+					"
+				></div></div
+			><div
+				data-obj-id="RbeDt"
+				data-obj-type="element"
+				data-text-editable="true"
+				class=""
+				style="position: absolute; top: 456px; left: 89px; width: 232px; height: 23px;"
+				data-released-from-group="H42PN"
+				><div
+					data-text-content="true"
+					style="font-size: 16px; font-weight: bold;"
+					class=""
+					spellcheck="false"
+					>야식 대신 간단한 주전부리</div
+				></div
+			><div
+				data-obj-id="98L3J"
+				data-obj-type="element"
+				data-text-editable="true"
+				class=""
+				style="position: absolute; top: 486px; left: 90px; width: 228px; height: 36px;"
+				data-released-from-group="H42PN"
+				><div data-text-content="true" style="font-size: 13px; line-height: 1.4em;" class=""
+					>작성자 | 추천수</div
+				></div
+			>
+
+			<div
+				data-obj-id="19ZfT"
+				data-obj-type="icon"
+				class=""
+				style="position: absolute; top: 551px; left: 275px; width: 38px; height: 34px;"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					version="1.1"
+					id="Layer_1"
+					x="0px"
+					y="0px"
+					width="32px"
+					height="32px"
+					viewBox="0 0 32 32"
+					enable-background="new 0 0 32 32"
+					xml:space="preserve"
+					data-svg-content="true"
+					fill="#000000"
+				>
+					<g>
+						<path
+							fill="#828282"
+							d="M10.5,0C4.71,0,0,4.71,0,10.5S4.71,21,10.5,21c2.725,0,5.203-1.052,7.071-2.76   c0.022,0.039,0.042,0.08,0.076,0.114l2.151,2.151c-0.18,0.304-0.282,0.648-0.282,1.011c0,0.534,0.208,1.036,0.586,1.414   l8.485,8.485C28.964,31.792,29.466,32,30,32s1.036-0.208,1.414-0.586S32,30.534,32,30s-0.208-1.036-0.586-1.414l-8.485-8.485   c-0.634-0.634-1.659-0.729-2.42-0.299l-2.155-2.155c-0.034-0.034-0.074-0.054-0.114-0.076C19.948,15.703,21,13.225,21,10.5   C21,4.71,16.29,0,10.5,0z M22.222,20.808l8.485,8.485C30.896,29.482,31,29.733,31,30s-0.104,0.518-0.293,0.707   c-0.379,0.377-1.035,0.377-1.414,0l-8.485-8.485c-0.188-0.189-0.293-0.44-0.293-0.707s0.104-0.518,0.293-0.707   c0.189-0.188,0.44-0.293,0.707-0.293S22.032,20.619,22.222,20.808z M10.5,20C5.262,20,1,15.738,1,10.5S5.262,1,10.5,1   S20,5.262,20,10.5S15.738,20,10.5,20z"
+						></path>
+						<path
+							fill="#828282"
+							d="M10.5,3C6.364,3,3,6.364,3,10.5S6.364,18,10.5,18s7.5-3.364,7.5-7.5S14.636,3,10.5,3z M10.5,17   C6.916,17,4,14.084,4,10.5S6.916,4,10.5,4S17,6.916,17,10.5S14.084,17,10.5,17z"
+						></path>
+					</g></svg></div
+			><div
+				data-obj-id="rt2OA"
+				data-obj-type="group"
+				class=""
+				style="position: absolute; top: 549px; left: 49px; width: 205px; height: 36px;"
+				><div
+					data-obj-id="RycwM"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="position: absolute; top: 0px; left: 0px; width: 29.17px; height: 36px;"
+					><div
+						data-text-content="true"
+						style="
+							font-size: 16px;
+							color: rgb(127, 127, 127);
+							text-align: center;
+							line-height: 2.6em;
+							border-top-left-radius: 4px;
+							border-top-right-radius: 4px;
+							border-bottom-right-radius: 4px;
+							border-bottom-left-radius: 4px;
+							background-color: rgb(244, 244, 244);
+						"
+						class=""
+						spellcheck="false"
+						>&lt;</div
+					></div
+				><div
+					data-obj-id="dElVF"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="
+						position: absolute;
+						top: 0px;
+						left: 34.0316px;
+						width: 29.9802px;
+						height: 36px;
+					"
+					><div
+						data-text-content="true"
+						style="
+							font-size: 16px;
+							color: rgb(64, 64, 64);
+							text-align: center;
+							line-height: 2.6em;
+							border-top-left-radius: 4px;
+							border-top-right-radius: 4px;
+							border-bottom-right-radius: 4px;
+							border-bottom-left-radius: 4px;
+							background-color: rgb(244, 244, 244);
+						"
+						class=""
+						>1</div
+					></div
+				><div
+					data-obj-id="Jlqjy"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="
+						position: absolute;
+						top: 0px;
+						left: 68.8735px;
+						width: 29.17px;
+						height: 36px;
+					"
+					><div
+						data-text-content="true"
+						style="
+							font-size: 16px;
+							color: rgb(255, 255, 255);
+							text-align: center;
+							line-height: 2.6em;
+							border-top-left-radius: 4px;
+							border-top-right-radius: 4px;
+							border-bottom-right-radius: 4px;
+							border-bottom-left-radius: 4px;
+							background-color: rgb(52, 152, 219);
+						"
+						class=""
+						>2</div
+					></div
+				><div
+					data-obj-id="QEUiJ"
+					data-obj-type="element"
+					data-text-editable="true"
+					style="
+						position: absolute;
+						top: 0px;
+						left: 104.526px;
+						width: 29.17px;
+						height: 36px;
+					"
+					><div
+						data-text-content="true"
+						style="
+							font-size: 16px;
+							color: rgb(64, 64, 64);
+							text-align: center;
+							line-height: 2.6em;
+							border-top-left-radius: 4px;
+							border-top-right-radius: 4px;
+							border-bottom-right-radius: 4px;
+							border-bottom-left-radius: 4px;
+							background-color: rgb(244, 244, 244);
+						"
+						class=""
+						>3</div
+					></div
+				><div
+					data-obj-id="1nHqb"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="
+						position: absolute;
+						top: 0px;
+						left: 139.368px;
+						width: 29.9802px;
+						height: 36px;
+					"
+					><div
+						data-text-content="true"
+						style="
+							font-size: 16px;
+							color: rgb(64, 64, 64);
+							text-align: center;
+							line-height: 2.6em;
+							border-top-left-radius: 4px;
+							border-top-right-radius: 4px;
+							border-bottom-right-radius: 4px;
+							border-bottom-left-radius: 4px;
+							background-color: rgb(244, 244, 244);
+						"
+						class=""
+						>4</div
+					></div
+				><div
+					data-obj-id="RXrGo"
+					data-obj-type="element"
+					data-text-editable="true"
+					style="
+						position: absolute;
+						top: 0px;
+						left: 174.209px;
+						width: 29.17px;
+						height: 36px;
+					"
+					><div
+						data-text-content="true"
+						style="
+							font-size: 16px;
+							color: rgb(127, 127, 127);
+							text-align: center;
+							line-height: 2.6em;
+							border-top-left-radius: 4px;
+							border-top-right-radius: 4px;
+							border-bottom-right-radius: 4px;
+							border-bottom-left-radius: 4px;
+							background-color: rgb(244, 244, 244);
+						"
+						class=""
+						>&gt;</div
+					></div
+				></div
+			><div
+				data-obj-type="group"
+				data-obj-id="4Fsrl"
+				class=""
+				style="position: absolute; left: 14px; top: 112px; width: 307px; height: 66px;"
+				><div
+					data-obj-id="70ajz"
+					data-obj-type="element"
+					class=""
+					style="position: absolute; top: 1px; left: 0px; width: 63px; height: 63px;"
+					><div
+						data-image-content="true"
+						style="
+							background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/wireframe.svg);
+						"
+					></div></div
+				><div
+					data-obj-id="TrF7h"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="position: absolute; top: 0px; left: 75px; width: 232px; height: 23px;"
+					><div
+						data-text-content="true"
+						style="font-size: 16px; font-weight: bold;"
+						class=""
+						>파스타를 만들어보자!</div
+					></div
+				><div
+					data-obj-id="eM0vh"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="position: absolute; top: 30px; left: 76px; width: 228px; height: 36px;"
+					><div
+						data-text-content="true"
+						style="font-size: 13px; line-height: 1.4em;"
+						class=""
+						>작성자 | 추천수</div
+					></div
+				></div
+			><div
+				data-obj-type="group"
+				data-obj-id="m4efJ"
+				class=""
+				style="position: absolute; left: 14px; top: 191px; width: 307px; height: 66px;"
+				><div
+					data-obj-id="GhiMh"
+					data-obj-type="element"
+					class=""
+					style="position: absolute; top: 1px; left: 0px; width: 63px; height: 63px;"
+					><div
+						data-image-content="true"
+						style="
+							background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/wireframe.svg);
+						"
+					></div></div
+				><div
+					data-obj-id="bAG4V"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="position: absolute; top: 0px; left: 75px; width: 232px; height: 23px;"
+					><div
+						data-text-content="true"
+						style="font-size: 16px; font-weight: bold;"
+						class=""
+						>나만의 김치찌개 레시피!</div
+					></div
+				><div
+					data-obj-id="3wQCv"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="position: absolute; top: 30px; left: 76px; width: 228px; height: 36px;"
+					><div
+						data-text-content="true"
+						style="font-size: 13px; line-height: 1.4em;"
+						class=""
+						>작성자 | 추천수</div
+					></div
+				></div
+			><div
+				data-obj-type="group"
+				data-obj-id="qslH1"
+				class=""
+				style="position: absolute; left: 14px; top: 371px; width: 305px; height: 66px;"
+				><div
+					data-obj-id="7OXlf"
+					data-obj-type="element"
+					class=""
+					style="position: absolute; top: 1px; left: 0px; width: 62.7941px; height: 63px;"
+					><div
+						data-image-content="true"
+						style="
+							background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/wireframe.svg);
+						"
+					></div></div
+				><div
+					data-obj-id="RE0EQ"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="
+						position: absolute;
+						top: 0px;
+						left: 74.5057px;
+						width: 230.245px;
+						height: 23px;
+					"
+					><div
+						data-text-content="true"
+						style="font-size: 16px; font-weight: bold;"
+						class=""
+						>멕시코에 온 듯한 부리또 레시피!</div
+					></div
+				><div
+					data-obj-id="2Anrv"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="
+						position: absolute;
+						top: 30px;
+						left: 75.5025px;
+						width: 226.258px;
+						height: 36px;
+					"
+					><div
+						data-text-content="true"
+						style="font-size: 13px; line-height: 1.4em;"
+						class=""
+						>작성자 | 추천수</div
+					></div
+				></div
+			><div
+				data-obj-id="777bz"
+				data-obj-type="element"
+				data-text-editable="true"
+				class=""
+				style="position: absolute; top: 68px; left: 289px; width: 65px; height: 30px;"
+				><input
+					type="text"
+					data-min-width="60"
+					data-min-height="30"
+					data-text-content="true"
+					value="글쓰기"
+					style="color: rgb(94, 94, 94);"
+					class=""
+			/></div>
+
+			<div
+				data-obj-id="Lpnv0"
+				data-obj-type="element"
+				data-text-editable="true"
+				class=""
+				style="position: absolute; top: 65px; left: 77px; width: 83px; height: 34px;"
+				><div
+					data-text-content="true"
+					data-min-width="80"
+					data-min-height="30"
+					style="
+						border-top-left-radius: 4px;
+						border-top-right-radius: 4px;
+						border-bottom-right-radius: 4px;
+						border-bottom-left-radius: 4px;
+						border: 1px solid #ccc;
+						box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+						background-color: rgb(255, 255, 255);
+						line-height: 40px;
+					"
+					class=""
+					>정렬</div
+				>
+				<div
+					style="
+						position: absolute;
+						top: 50%;
+						right: 5px;
+						margin-top: -12px;
+						width: 15px;
+						height: 15px;
+					"
+					class=""
+					><svg
+						xmlns="http://www.w3.org/2000/svg"
+						xmlns:xlink="http://www.w3.org/1999/xlink"
+						width="32"
+						height="32"
+						viewBox="0 0 32 32"
+						fill="#000000"
+						data-svg-content="true"
+					>
+						<g>
+							<path
+								d="M 8.998,20l 13.966,0 c 0.286,0, 0.54-0.138, 0.72-0.352l 0.004,0.004c 0.39-0.434, 0.39-1.138,0-1.572L 16.69,10.326 c-0.39-0.434-1.022-0.434-1.41,0c-0.010,0.012-0.014,0.028-0.024,0.040L 8.272,18.080c-0.39,0.434-0.39,1.138,0,1.572 C 8.276,19.656, 8.28,19.658, 8.284,19.662C 8.466,19.87, 8.716,20, 8.998,20z"
+							></path>
+						</g></svg
+				></div>
+				<div
+					style="position: absolute; top: 50%; right: 5px; width: 15px; height: 15px;"
+					class=""
+					><svg
+						xmlns="http://www.w3.org/2000/svg"
+						xmlns:xlink="http://www.w3.org/1999/xlink"
+						width="32"
+						height="32"
+						viewBox="0 0 32 32"
+						fill="#000000"
+						data-svg-content="true"
+					>
+						<g>
+							<path
+								d="M 16.682,19.674c 0.010-0.012, 0.014-0.028, 0.024-0.040l 6.982-7.714c 0.39-0.434, 0.39-1.138,0-1.572 c-0.004-0.004-0.008-0.006-0.012-0.008C 23.496,10.13, 23.244,10, 22.964,10L 8.998,10 c-0.286,0-0.54,0.138-0.722,0.352L 8.272,10.348 c-0.39,0.434-0.39,1.138,0,1.572l 6.998,7.754C 15.66,20.108, 16.292,20.108, 16.682,19.674z"
+							></path>
+						</g></svg></div></div
+			><div
+				data-obj-type="group"
+				data-obj-id="zz2Kb"
+				class=""
+				style="position: absolute; left: 14px; top: 279px; width: 307px; height: 66px;"
+				><div
+					data-obj-id="EZy3u"
+					data-obj-type="element"
+					class=""
+					style="position: absolute; top: 1px; left: 0px; width: 63px; height: 63px;"
+					><div
+						data-image-content="true"
+						style="
+							background-image: url(https://proxy.goorm.io/ovenapp/static/images/shape/wireframe.svg);
+						"
+					></div></div
+				><div
+					data-obj-id="nIFB3"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="position: absolute; top: 0px; left: 75px; width: 232px; height: 23px;"
+					><div
+						data-text-content="true"
+						style="font-size: 16px; font-weight: bold;"
+						class=""
+						spellcheck="false"
+						>된장 말고 쌈장찌개</div
+					></div
+				><div
+					data-obj-id="Y8pAJ"
+					data-obj-type="element"
+					data-text-editable="true"
+					class=""
+					style="position: absolute; top: 30px; left: 76px; width: 228px; height: 36px;"
+					><div
+						data-text-content="true"
+						style="font-size: 13px; line-height: 1.4em;"
+						class=""
+						>작성자 | 추천수</div
+					></div
+				></div
+			>
+		</div>
+		<script>
+			var _tiq = "undefined" !== typeof _tiq ? _tiq : [];
+			_tiq.push(["__setPageName", "webview"]);
+			_tiq.push(["__trackPageview"]);
+			(function (d) {
+				var se = d.createElement("script");
+				se.type = "text/javascript";
+				se.async = true;
+				se.src = location.protocol + "//m1.daumcdn.net/tiara/js/td.min.js";
+				var s = d.getElementsByTagName("head")[0];
+				s.appendChild(se);
+			})(document);
+		</script>
+	</body>
+</html>
+
