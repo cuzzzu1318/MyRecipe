@@ -12,7 +12,7 @@
     <header>
 
       <i class="fas fa-bars"></i><!-- 햄버거 바 -->
-      <img class="logo" src="MyRecipe/logo.jpg" alt="logo  ">
+      <img class="logo" src="logo.jpg" alt="logo  ">
       <i class="fas fa-user-cog" onclick="document.location.href='****.php'"></i><!-- 마이페이지 -->
     </header>
 
@@ -25,7 +25,7 @@
 
     <div class="description">
         <input type="text" name="" value="">
-        <img src="MyRecipe/logo.jpg" alt="table">
+        <img src="logo.jpg" alt="table">
     </div>
   </body>
 </html>
