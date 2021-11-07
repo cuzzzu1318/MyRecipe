@@ -1,0 +1,49 @@
+body{
+  width: 360px;
+  border: 3px solid red;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 360px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid gray;
+}
+i{
+  font-size: 30px;
+  color: gray;
+}
+.logo{
+  width: 150px;
+  height: auto;
+}
+.sidebar{
+  display: flex;
+  justify-content: center;
+  width: 360px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid gray;
+}
+.sidebar ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 300px;
+  padding: 0;
+}
+.sidebar ul li{
+  list-style: none;
+  margin: 0 10px;
+  box-sizing: border-box;
+}
+.description{
+  padding-top: 10px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.description img{
+  width: 360px;
+}
