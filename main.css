@@ -15,8 +15,10 @@ i{
   color: gray;
 }
 .logo{
+  display: block;
   width: 150px;
   height: auto;
+  margin: 0 auto;
 }
 .sidebar{
   display: flex;
