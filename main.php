@@ -7,6 +7,7 @@ maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="myRecipe.css">
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
@@ -16,16 +17,10 @@ maximum-scale=1.0, minimum-scale=1.0">
       <img class="icon" src="image/icon_user.svg" alt="user">
     </header>
 
-    <div class="wrap">
-      <input type="button" class="" name="" value="">
+    <div class="menu_bar">
+      <input type="button" class="btn" name="공지" value="공지">
+      <input type="button" class="btn" name="게시판 보기" value="게시판 보기">
     </div>
-
-    <aside class="sidebar">
-      <ul>
-        <li>공지</li>
-        <li>게시판 보기</li>
-      </ul>
-    </aside>
 
     <div class="description">
         <input type="text" name="" value="">
