@@ -1,31 +1,36 @@
 body{
   width: 360px;
-  border: 3px solid red;
+  margin: auto;
+  /* border: 1px solid red; */
 }
+
 header{
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  justify-content: center;
   width: 360px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid gray;
+  padding: 5px 0;
+  border-bottom: 1px solid #CCCCCC;
 }
-i{
-  font-size: 30px;
-  color: gray;
+
+.icon{
+  padding: 10px;
+  width: 20px;
+  height: 20px;
 }
+
 .logo{
   display: block;
   width: 150px;
   height: auto;
   margin: 0 auto;
 }
+
 .sidebar{
   display: flex;
   justify-content: center;
   width: 360px;
   padding-bottom: 3px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #CCCCCC;
 }
 .sidebar ul{
   display: flex;
