@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"  name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,
+maximum-scale=1.0, minimum-scale=1.0">
     <title>MyRecipe</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
