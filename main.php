@@ -13,13 +13,13 @@ maximum-scale=1.0, minimum-scale=1.0">
   <body>
     <header>
       <img class="icon" src="image/icon_back.svg" alt="back">
-      <img class="logo" src="logo.jpg" alt="logo">
+      <a href="main.php"><img class="logo" src="logo.jpg" alt="logo"></a>
       <img class="icon" src="image/icon_user.svg" alt="user">
     </header>
 
     <div class="menu_bar">
       <input type="button" class="btn" name="공지" value="공지">
-      <input type="button" class="btn" name="게시판 보기" value="게시판 보기">
+      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='category.php'">
     </div>
 
     <div class="description">
