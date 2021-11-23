@@ -1,41 +1,59 @@
-body{
-  width:356px;
-  height: 600px;
-  background-color: white;
-}
 .logo{
-  position: absolute;
-  top: 40px;
-  left: 37px;
-  width: 295px;
-  height: 148px;
+  padding-right: 40px;
 }
-.login_info{
-  position: absolute;
+
+.content{
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  left: 75px;
-  top: 260px;
+  justify-content: center;
+  flex-direction: column;
 }
-.textbox{
-  margin: 10px;
-  width: 170px;
+
+::placeholder{
+  color: #CCCCCC;
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+#id{
+  width: 230px;
   height: 40px;
+  border: 1px solid #CCCCCC;
   border-radius: 5px;
-}
-#login_button{
-  background-color: orange;
-  width: 168px;
-  height: 46px;
+  padding-left: 5px;
+  margin-top: 10px;
   margin-bottom: 10px;
-  border-radius: 4px;
-  border-style: none;
 }
-#signup_button{
-  background-color: blue;
-  width: 168px;
-  height: 46px;
-  border-radius: 4px;
-  border-style: none;
+
+#pw{
+  width: 230px;
+  height: 40px;
+  border: 1px solid #CCCCCC;
+  padding-left: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#login{
+  width: 238px;
+  height: 40px;
+  font-size: 15px;
+  color: #FFFFFF;
+  font-weight: 600;
+  background-color: #f4b35f;
+  border: 1px solid #f4b35f;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#signup{
+  width: 238px;
+  height: 40px;
+  font-size: 15px;
+  background-color: #FFFFFF;
+  color: #f4b35f;
+  font-weight: 600;
+  border: 2px solid #f4b35f;
+  border-radius: 5px;
 }
