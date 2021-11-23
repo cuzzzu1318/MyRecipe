@@ -1,0 +1,17 @@
+.div_button_category{
+  display: flex;
+  margin: 0 auto;
+}
+.button_category{
+  margin: 5px 5px;
+  width: 150px;
+  height: 150px;
+  border: none;
+  background-color: #FFFFFF;
+  background-image: url("image/background_wood.png");
+  background-repeat: no-repeat;
+  background-size: 80px 148px;
+  padding: 0;
+  color: #FFFFFF;
+  font-size: 15pt;
+}
