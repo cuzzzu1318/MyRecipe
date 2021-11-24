@@ -12,6 +12,8 @@
   background-repeat: no-repeat;
   background-size: 80px 148px;
   padding: 0;
-  color: #FFFFFF;
+  text-align: center;
+  color: black;
+  font-weight: 600;
   font-size: 15pt;
 }
