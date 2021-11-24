@@ -4,10 +4,12 @@ body{
 }
 
 header{
+  background-color: #FFDEAD;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 360px;
-  padding: 5px 0;
+  padding: 0;
   border-bottom: 1px solid #CCCCCC;
   margin-bottom: 5px;
 }
@@ -20,9 +22,9 @@ header{
 
 .logo{
   display: block;
-  width: 200px;
+  width: 120px;
   height: auto;
-  margin: 0 auto;
+  margin-left: 10px;
 }
 
 .menu_bar{
@@ -38,5 +40,9 @@ header{
   height: 35px;
   border: none;
   border-radius: 5px;
-  background: #f4b35f;
+  background-color: #FFFFFF;
+}
+
+#input_search{
+  height: 30px;
 }

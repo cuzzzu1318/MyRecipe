@@ -12,10 +12,15 @@ maximum-scale=1.0, minimum-scale=1.0">
   </head>
   <body>
     <header>
-      <img class="icon" src="image/icon_back.svg" alt="back">
-      <a href="main.php"><img class="logo" src="logo.jpg" alt="logo"></a>
+      <a href="main.php"><img class="logo" src="image/logo.png" alt="logo"></a>
+          <input type="text" id="input_search" placeholder="레시피, 재료, 작성자">
       <img class="icon" src="image/icon_user.svg" alt="user">
     </header>
+
+    <div class="menu_bar">
+      <input type="button" class="btn" name="공지" value="메인" >
+      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='category.php'" style="border-bottom: 5px solid black;">
+    </div>
     <div class="div_button_category">
       <button type="button" class="button_category" value="전체">전체</button>
     <?php
