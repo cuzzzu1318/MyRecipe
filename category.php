@@ -1,5 +1,5 @@
 <?php
-  $mysqli = new mysqli("localhost", "myRecipe", "pa22w0rd!", "myRecipe");
+  $mysqli = new mysqli("localhost", "myRecipe", "1O1o5u", "myRecipe");
  ?>
  <!DOCTYPE html>
 <html lang="ko" dir="ltr">
@@ -22,7 +22,7 @@ maximum-scale=1.0, minimum-scale=1.0">
       <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='category.php'" style="border-bottom: 5px solid black;">
     </div>
     <div class="div_button_category">
-      <button type="button" class="button_category" value="전체">전체</button>
+      <button type="button" class="button_category" value="전체" onclick="location.href='list.php'">전체</button>
     <?php
       $sql = "
           SELECT DISTINCT category FROM recipe;

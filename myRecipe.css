@@ -1,8 +1,12 @@
 body{
   margin: auto;
+  padding-top: 112.094px;
 }
 
 header{
+  position: fixed;
+  width: 100%;
+  top: 0;
   background-color: #FFDEAD;
   display: flex;
   justify-content: space-between;
@@ -26,6 +30,9 @@ header{
 }
 
 .menu_bar{
+  position: fixed;
+  top: 72.094px;
+  width: 100%;
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #CCCCCC;
@@ -39,9 +46,29 @@ header{
   border: none;
   border-radius: 5px;
   background-color: #FFFFFF;
+  cursor: pointer;
 }
 
 #input_search{
   height: 30px;
   width: 50%;
+}
+
+table{
+  margin-top: 16px;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  border-collapse: collapse;
+}
+th{
+  text-align: center;
+  border-bottom: 1px solid #FFE4C4;
+  padding: 5px;
+}
+td{
+  text-align: center;
+  border-bottom: 1px solid #FFE4C4;
+  padding: 5px;
 }
