@@ -1,18 +1,60 @@
-header{
-  margin-bottom: 15px;
+body{
+  width: 100%;
+  padding-top: 51.175px;
 }
 
-.logo{
-  margin: 0;
-  margin-right: 120px;
+h1{
+  display: flex;
+  width: 100%;
+  font-size: 17px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.icon{
+  position: absolute;
 }
 
 .content{
   margin: 0 auto;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.match{
+  display: none;
+  text-align: left;
+}
+
+.pw-match{
+  display: block;
+  width: 230px;
+  word-break: break-all;
+  letter-spacing: -.3px;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 11.72px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  color: #419FF5;
+}
+
+.pw-unmatch{
+  display: block;
+  width: 230px;
+  word-break: break-all;
+  letter-spacing: -.3px;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 11.72px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  color: #F44336;
 }
 
 ::placeholder{
@@ -21,8 +63,18 @@ header{
   font-size: 15px;
 }
 
-#id, #pw, #re-pw, #nickname{
-  width: 230px;
+#id{
+  width: calc(100% - 8px);
+  height: 40px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  padding-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#pw, #re-pw, #nickname{
+  width: calc(100% - 8px);
   height: 40px;
   border: 1px solid #CCCCCC;
   border-radius: 5px;
@@ -31,7 +83,7 @@ header{
 }
 
 #signup{
-  width: 238px;
+  width: 100%;
   height: 40px;
   font-size: 15px;
   color: #FFFFFF;
