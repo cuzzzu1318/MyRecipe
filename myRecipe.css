@@ -1,5 +1,4 @@
 body{
-  width: 360px;
   margin: auto;
 }
 
@@ -8,7 +7,6 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 360px;
   padding: 0;
   border-bottom: 1px solid #CCCCCC;
   margin-bottom: 5px;
@@ -45,4 +43,5 @@ header{
 
 #input_search{
   height: 30px;
+  width: 50%;
 }

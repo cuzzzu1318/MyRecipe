@@ -18,7 +18,7 @@ maximum-scale=1.0, minimum-scale=1.0">
     </header>
 
     <div class="menu_bar">
-      <input type="button" class="btn" name="공지" value="메인" >
+      <input type="button" class="btn" name="공지" value="메인" onclick="location.href='main.php'">
       <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='category.php'" style="border-bottom: 5px solid black;">
     </div>
     <div class="div_button_category">
