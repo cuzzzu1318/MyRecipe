@@ -14,7 +14,7 @@ maximum-scale=1.0, minimum-scale=1.0">
   <body>
     <header>
       <img class="icon" src="image/icon_back.svg" alt="back">
-      <img class="logo" src="logo.jpg" alt="logo">
+      <img class="logo" src="image/logo.png" alt="logo">
     </header>
 
     <div class="content">
