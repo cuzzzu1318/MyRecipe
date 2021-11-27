@@ -27,7 +27,7 @@ maximum-scale=1.0, minimum-scale=1.0">
     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
     crossorigin="anonymous">
     <link rel="stylesheet" href="myRecipe.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="list.css">
   </head>
   <body>
     <header>
@@ -43,11 +43,10 @@ maximum-scale=1.0, minimum-scale=1.0">
     <table>
       <thead>
         <tr>
-          <th scope="col">번호</th>
+          <th scope="col">추천 수</th>
           <th scope="col">제목</th>
           <th scope="col">비용</th>
-          <th scope="col">추천</th>
-          <th scope="col">닉네임</th>
+          <th scope="col">작성자</th>
         </tr>
       </thead>
       <?php
@@ -73,11 +72,10 @@ maximum-scale=1.0, minimum-scale=1.0">
           ?>
 
           <tbody>
-           <tr style="height: 50px; cursor: pointer;" onclick="location.replace('post.php?postID=<?=$row['postID']?>');">
-             <td style="text-align: center; width: 40px; padding: 0;"><?=$article['postID']?></td>
-             <td style="width: 100px;"><?=getTitle($article['recipeName'])?></td>
+           <tr style="height: 50px; cursor: pointer;" onclick="location.href='post.php?postID=<?=$row['postID']?>';">
+             <td style="width: 50px;"><?=$article['like']?></td>
+             <td style="width: 170px;"><?=getTitle($article['recipeName'])?></td>
              <td>\<?=$article['cost']?></td>
-             <td style="width: 40px;"><?=$article['like']?></td>
              <td><?=$article['nickname']?></td>
            </tr>
           </tbody>
@@ -87,6 +85,6 @@ maximum-scale=1.0, minimum-scale=1.0">
       }
        ?>
   </table>
-
+  <img src="image/button_plus.png" onclick="location.href='write.php'" id="write" alt="">
   </body>
 </html>
