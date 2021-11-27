@@ -14,15 +14,56 @@ maximum-scale=1.0, minimum-scale=1.0">
   <body>
     <header>
       <img class="icon" src="image/icon_back.svg" alt="back">
-      <img class="logo" src="image/logo.png" alt="logo">
+      <h1>회원가입</h1>
     </header>
 
     <div class="content">
       <input type="text" id="id" placeholder="아이디를 입력해주세요">
       <input type="password" id="pw" placeholder="비밀번호를 입력해주세요">
       <input type="password" id="re-pw" placeholder="비밀번호를 재입력해주세요">
+      <div class="match" id="pw-match">
+        <span class=pw-match>비밀번호가 일치합니다.</span>
+      </div>
+      <div class="match" id="pw-unmatch">
+        <span class=pw-unmatch>비밀번호가 일치하지 않습니다.</span>
+      </div>
       <input type="text" id="nickname" placeholder="닉네임을 입력해주세요">
-      <input type="button" id="signup" value="회원가입">
+      <input type="button" id="signup" value="회원가입" onclick="location.href='signin.php'">
     </div>
+
+    <script type="text/javascript">
+      var pw = document.getElementById("pw");
+      var re_pw = document.getElementById("re-pw");
+      var pw_match = document.getElementById("pw-match");
+      var pw_unmatch = document.getElementById("pw-unmatch");
+
+      re_pw.addEventListener("keyup", function(e){
+        if(pw.value == re_pw.value){
+          pw_match.style.display = "block";
+          pw_unmatch.style.display = "none";
+        }
+        else{
+          pw_match.style.display = "none";
+          pw_unmatch.style.display = "block";
+        }
+      })
+
+      pw.addEventListener("keyup", function(e){
+        if(re_pw.value==""){
+          pw_match.style.display = "none";
+          pw_unmatch.style.display = "none";
+        }
+        else{
+          if(pw.value == re_pw.value){
+            pw_match.style.display = "block";
+            pw_unmatch.style.display = "none";
+          }
+          else{
+            pw_match.style.display = "none";
+            pw_unmatch.style.display = "block";
+          }
+        }
+      })
+    </script>
   </body>
 </html>
