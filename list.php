@@ -32,7 +32,7 @@ maximum-scale=1.0, minimum-scale=1.0">
   <body>
     <?php include('header.inc'); ?>
     <div class="menu_bar">
-      <input type="button" class="btn" name="공지" value="메인"onclick="location.href='main.php'"  >
+      <input type="button" class="btn" name="공지" value="메인"onclick="location.href='index.php'"  >
       <input type="button" class="btn" name="게시판 보기" value="게시판 보기" id="cur_menu" onclick="location.href='category.php'" >
     </div>
     <table>

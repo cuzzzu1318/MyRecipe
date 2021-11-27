@@ -9,7 +9,6 @@
 
   }
  ?>
-
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
@@ -21,6 +20,8 @@ maximum-scale=1.0, minimum-scale=1.0">
     crossorigin="anonymous">
     <link rel="stylesheet" href="myRecipe.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
   </head>
   <body>
     <?php include('header.inc'); ?>
@@ -28,35 +29,57 @@ maximum-scale=1.0, minimum-scale=1.0">
       <input type="button" class="btn" id="cur_menu" name="공지" value="메인">
       <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='category.php'">
     </nav>
-    <ul class="notice">
-      <?php
-      $sql = "
-        SELECT * FROM notice ORDER BY noticeID DESC LIMIT 3 ;
-      ";
-      $result = $mysqli->query($sql);
-      if ($result == false) {
-      echo $mysqli->error;
-      }else{
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_array()) {
-            $article = array(
-              'noticeID' => $row['noticeID'],
-              'title' => htmlspecialchars($row['title']),
-              'description' => htmlspecialchars($row['description']),
-              'noticeDate' =>htmlspecialchars($row['noticeDate'])
-            );
-            ?>
-            <li class="noticeRolling">
-              <span class="noticeTitle"><?=$article['title']?></span>
-              <span class="noticeText"><?=$article['description']?></span>
-              <span class="noticeDate"><?=substr($article['noticeDate'],0, 10)?></span>
-            </li>
-            <?php
+    <div class="notice">
+      <i class="fas fa-clipboard-list"></i>
+      <ul class="rolling">
+        <?php
+        $sql = "
+          SELECT * FROM notice ORDER BY noticeID DESC LIMIT 3 ;
+        ";
+        $result = $mysqli->query($sql);
+        if ($result == false) {
+        echo $mysqli->error;
+        }else{
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_array()) {
+              $article = array(
+                'noticeID' => $row['noticeID'],
+                'title' => htmlspecialchars($row['title']),
+                'description' => htmlspecialchars($row['description']),
+                'noticeDate' =>htmlspecialchars($row['noticeDate'])
+              );
+              ?>
+              <li class="item">
+                <span class="noticeText"><?=getTitle($article['description'])?></span>
+                <span class="noticeDate"><?=substr($article['noticeDate'],0, 10)?></span>
+              </li>
+              <?php
+            }
           }
         }
-      }
-      ?>
-    </ul>
+        ?>
+      </ul>
+      <buttton id="moreNotice" onclick="location.href='notice.php'">더보기+</buttton>
+    </div>
+  <script>
+      $(document).ready(function(){
+      	var height =  $(".notice").height();
+      	var num = $(".rolling .item").length;
+      	var max = height * num;
+      	var move = 0;
+      	function noticeRolling(){
+      		move += height;
+      		$(".rolling").animate({"top":-move},600,function(){
+      			if( move >= max ){
+      				$(this).css("top",0);
+      				move = 0;
+      			};
+      		});
+      	};
+      	noticeRollingOff = setInterval(noticeRolling,1000);
+      	$(".rolling").append($(".rolling .item").first().clone());
+      });
+    </script>
 <!-- main description -->
     <main class="description">
       <div class="recent">

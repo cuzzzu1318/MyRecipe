@@ -28,7 +28,6 @@
   flex-direction: column;
   align-items: center;
   border: 2px solid var(--green-dark-color);
-  border-radius: 10%;
 }
 
 .description .recent{
@@ -47,10 +46,39 @@
 }
 
 .notice{
+  width: 95%;
   display: flex;
-  flex-direction: column;
+  height: 35px;
+  overflow: hidden;
+  padding: 0;
+  margin: 5px auto;
+  background-color: var(--green-light-color);
 }
-.notice .noticeRolling{
+
+.notice i{
+  margin-left: 5px;
+  font-size: 30px;
+}
+
+.notice .rolling{
+  margin: 0;
+  position: relative;
+  padding: 0px 10px;
+  width: 87%;
+  font-size: 12px;
+}
+
+.notice .rolling .item{
+  height: 35px;
   display: flex;
+  align-items: center;
   justify-content: space-around;
+}
+
+.notice #moreNotice{
+  cursor: pointer;
+  margin: auto 5px;
+  height: fit-content;
+  font-size: 10px;
+  white-space: nowrap;
 }
