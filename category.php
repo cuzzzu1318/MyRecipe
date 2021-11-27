@@ -1,5 +1,5 @@
 <?php
-  $mysqli = new mysqli("localhost", "myRecipe", "1O1o5u", "myRecipe");
+  $mysqli = new mysqli("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
  ?>
  <!DOCTYPE html>
 <html lang="ko" dir="ltr">
@@ -12,7 +12,7 @@ maximum-scale=1.0, minimum-scale=1.0">
   </head>
   <body>
     <header>
-      <a href="main.php"><img class="logo" src="image/logo.png" alt="logo"></a>
+      <a href="index.php"><img class="logo" src="image/logo.png" alt="logo"></a>
           <input type="text" id="input_search" placeholder="레시피, 재료, 작성자">
       <img class="icon" src="image/icon_user.svg" alt="user">
     </header>
@@ -29,7 +29,7 @@ maximum-scale=1.0, minimum-scale=1.0">
       ";
       $result = $mysqli->query($sql);
       if($result == false){
-        echo $mysqli->error;
+        echo '에러';
       }else{
         if($result->num_rows > 0){
           while($row = $result->fetch_array()){

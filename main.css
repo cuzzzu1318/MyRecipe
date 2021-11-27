@@ -18,12 +18,39 @@
   box-sizing: border-box;
 }
 .description{
+  width: 95%;
+  margin: 0 auto;
+  padding: 5px;
+  overflow: hidden;
+  margin-top: 10px;
   padding-top: 10px;
-  width: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid var(--green-dark-color);
+  border-radius: 10%;
 }
-.description img{
-  width: 360px;
+
+.description .recent{
+  font-size: 12px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.description .recent .morePost{
+  cursor: pointer;
+  border: 2px solid var(--brown-color);
+  background-color: var(--brown-color);
+  border-radius: 20%;
+  color: #FFFFFF;
+}
+
+.notice{
+  display: flex;
+  flex-direction: column;
+}
+.notice .noticeRolling{
+  display: flex;
+  justify-content: space-around;
 }

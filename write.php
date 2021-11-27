@@ -18,12 +18,13 @@ maximum-scale=1.0, minimum-scale=1.0">
     </header>
 
     <div class="menu_bar">
-      <input type="button" class="btn" name="공지" value="메인" style="border-bottom: 5px solid black;">
-      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='category.php'">
+      <input type="button" class="btn" name="공지" value="메인" onclick="location.href='main.php'" >
+      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='category.php'"  id="cur_menu">
     </div>
+    <div id="write_form">
+      <form action="index.html" method="post" ENCTYPE="multipart/form-data">
 
-    <div class="description">
-        <img src="logo.jpg" alt="table">
+      </form>
     </div>
   </body>
 </html>
