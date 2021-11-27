@@ -1,5 +1,5 @@
 <?php
-  $mysqli = new mysqli("localhost", "myRecipe", "1O1o5u", "myRecipe");
+  $mysqli = new mysqli("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
   if (isset($_GET['cur_page'])) {
       $cur_page = $_GET['cur_page'];
     }else {
@@ -30,15 +30,10 @@ maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="list.css">
   </head>
   <body>
-    <header>
-      <a href="main.php"><img class="logo" src="image/logo.png" alt="logo"></a>
-          <input type="text" id="input_search" placeholder="레시피, 재료, 작성자">
-      <img class="icon" src="image/icon_user.svg" alt="user">
-    </header>
-
+    <?php include('header.inc'); ?>
     <div class="menu_bar">
       <input type="button" class="btn" name="공지" value="메인"onclick="location.href='main.php'"  >
-      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" style="border-bottom: 5px solid black;"onclick="location.href='category.php'" >
+      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" id="cur_menu" onclick="location.href='category.php'" >
     </div>
     <table>
       <thead>

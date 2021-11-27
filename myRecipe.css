@@ -1,3 +1,11 @@
+:root{
+  --main-color: #FFDEAD;
+  --green-light-color: #BEC595;
+  --green-dark-color: #83A98A;
+  --green-deep-color: #2F4858;
+  --brown-color: #B5A999;
+}
+
 body{
   margin: auto;
   padding-top: 112.094px;
@@ -7,7 +15,7 @@ header{
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: #FFDEAD;
+  background-color: var(--main-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +44,9 @@ header{
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #CCCCCC;
+}
+.menu_bar #cur_menu{
+  border-bottom: 5px solid var(--green-dark-color);
 }
 
 .btn{
