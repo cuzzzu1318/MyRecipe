@@ -5,3 +5,27 @@
   right: 10px;
   cursor: pointer;
 }
+
+.category{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.category i{
+  font-size: 40px;
+}
+
+.category .textAndIcon{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.category .textAndIcon i{
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.description table{
+  margin-top: 5px;
+}
