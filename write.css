@@ -1,0 +1,84 @@
+body{
+  width: 100%;
+}
+
+.logo_btn{
+  display: flex;
+  height: 55px;
+
+  justify-content: center;
+}
+
+option{
+  font-size: 16px;
+}
+
+.icon{
+  position: absolute;
+}
+
+::placeholder{
+  font-size: 16px;
+}
+
+.content{
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 90%;
+}
+
+.field{
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.textbox{
+  border: none;
+  width: 130px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.inputbox{
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 10px;
+  width: 600px;
+  background-color: #F5F5F5;
+  border: 1px solid #E1E1E1;
+}
+
+#slc_category{
+  width: 613px;
+}
+
+.ing{
+  display: flex;
+  min-width: 0px;
+}
+
+#recipre_ing{
+  width: 295px;
+  margin-right: 10px;
+  min-width: 10px;
+}
+
+#ing_cost{
+  width: 295px;
+  min-width: 10px;
+}
+
+.recipe{
+
+}
+
+.write{
+  display: flex;
+  justify-content: center;
+}
