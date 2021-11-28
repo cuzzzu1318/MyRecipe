@@ -7,6 +7,11 @@
   --light-color: #D6FADC;
   --green-notice-color: #EAEDDB;
 }
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 body{
   margin: auto;
