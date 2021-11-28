@@ -31,10 +31,10 @@ maximum-scale=1.0, minimum-scale=1.0">
   </head>
   <body>
     <?php include('header.inc'); ?>
-    <div class="menu_bar">
-      <input type="button" class="btn" name="공지" value="메인"onclick="location.href='index.php'"  >
-      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" id="cur_menu" >
-    </div>
+    <?php include('nav.inc'); ?>
+    <script type="text/javascript">
+     document.querySelector('#게시판').id='cur_menu';
+    </script>
     <div class="category">
       <i class="fas fa-caret-left"></i>
       <div class="textAndIcon">
@@ -80,7 +80,7 @@ maximum-scale=1.0, minimum-scale=1.0">
              <tr style="height: 50px; cursor: pointer;" onclick="location.href='post.php?postID=<?=$row['postID']?>';">
                <td style="width: 50px;"><?=$article['like']?></td>
                <td style="width: 170px;"><?=getTitle($article['recipeName'])?></td>
-               <td>\<?=$article['cost']?></td>
+               <td><?=$article['cost']?></td>
                <td><?=$article['nickname']?></td>
              </tr>
             </tbody>

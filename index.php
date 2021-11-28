@@ -25,10 +25,10 @@ maximum-scale=1.0, minimum-scale=1.0">
   </head>
   <body>
     <?php include('header.inc'); ?>
-    <nav class="menu_bar">
-      <input type="button" class="btn" id="cur_menu" name="공지" value="메인">
-      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='list.php'">
-    </nav>
+    <?php include('nav.inc'); ?>
+    <script type="text/javascript">
+     document.querySelector('#메인').id='cur_menu';
+    </script>
     <div class="notice">
       <i class="fas fa-clipboard-list"></i>
       <ul class="rolling">
@@ -121,7 +121,7 @@ maximum-scale=1.0, minimum-scale=1.0">
              <tr style="height: 50px; cursor: pointer;" onclick="location.href='post.php?postID=<?=$row['postID']?>';">
                <td style="width: 50px;"><?=$article['like']?></td>
                <td style="width: 170px;"><?=getTitle($article['recipeName'])?></td>
-               <td>\<?=$article['cost']?></td>
+               <td><?=$article['cost']?></td>
                <td><?=$article['nickname']?></td>
              </tr>
             </tbody>
