@@ -17,32 +17,23 @@
   margin: 0 10px;
   box-sizing: border-box;
 }
-.description{
-  width: 95%;
-  margin: 0 auto;
-  padding: 5px;
-  overflow: hidden;
-  margin-top: 10px;
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid var(--green-dark-color);
-}
 
 .description .recent{
   font-size: 12px;
-  width: 95%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .description .recent .morePost{
+  color: blue;
   cursor: pointer;
-  border: 2px solid var(--brown-color);
-  background-color: var(--brown-color);
-  border-radius: 20%;
-  color: #FFFFFF;
+  margin: auto 5px;
+  height: fit-content;
+  font-size: 10px;
+  white-space: nowrap;
+  background-color: white;
+  border: 0;
 }
 
 .notice{
@@ -52,12 +43,13 @@
   overflow: hidden;
   padding: 0;
   margin: 5px auto;
-  background-color: var(--green-light-color);
+  background-color: var(--green-notice-color);
 }
 
 .notice i{
-  margin-left: 5px;
-  font-size: 30px;
+  margin: auto 5px;
+  font-size: 20px;
+  white-space: nowrap;
 }
 
 .notice .rolling{
@@ -75,10 +67,24 @@
   justify-content: space-around;
 }
 
+.notice .rolling .item .noticeText{
+  width: 70%;
+  text-align: center;
+}
+
 .notice #moreNotice{
+  color: blue;
   cursor: pointer;
   margin: auto 5px;
   height: fit-content;
   font-size: 10px;
   white-space: nowrap;
+}
+
+.description{
+  padding-top: 5px;
+}
+
+.description table{
+  margin-top: 5px;
 }

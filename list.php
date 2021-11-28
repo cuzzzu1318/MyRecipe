@@ -33,53 +33,64 @@ maximum-scale=1.0, minimum-scale=1.0">
     <?php include('header.inc'); ?>
     <div class="menu_bar">
       <input type="button" class="btn" name="공지" value="메인"onclick="location.href='index.php'"  >
-      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" id="cur_menu" onclick="location.href='category.php'" >
+      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" id="cur_menu" >
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">추천 수</th>
-          <th scope="col">제목</th>
-          <th scope="col">비용</th>
-          <th scope="col">작성자</th>
-        </tr>
-      </thead>
-      <?php
-      $sql = "
-        SELECT * FROM recipe ORDER BY postID DESC LIMIT $start, $show ;
-      ";
-      $result = $mysqli->query($sql);
-      if ($result == false) {
-      echo $mysqli->error;
-      }else{
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_array()) {
-            $article = array(
-              'category' => $row['category'],
-              'postID' => htmlspecialchars($row['postID']),
-              'recipeName' => htmlspecialchars($row['recipeName']),
-              'cost' =>number_format(htmlspecialchars($row['cost'])),
-              'like' => htmlspecialchars($row['like']),
-              'nickname' => htmlspecialchars($row['nickname']),
-              'uploadDate' => htmlspecialchars($row['uploadDate'])
-            );
+    <div class="category">
+      <i class="fas fa-caret-left"></i>
+      <div class="textAndIcon">
+        <div class="text">
+          전체
+        </div>
+      </div>
+      <i class="fas fa-caret-right"></i>
+    </div>
+    <main class="description">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">추천 수</th>
+            <th scope="col">제목</th>
+            <th scope="col">비용</th>
+            <th scope="col">작성자</th>
+          </tr>
+        </thead>
+        <?php
+        $sql = "
+          SELECT * FROM recipe ORDER BY postID DESC LIMIT $start, $show ;
+        ";
+        $result = $mysqli->query($sql);
+        if ($result == false) {
+        echo $mysqli->error;
+        }else{
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_array()) {
+              $article = array(
+                'category' => $row['category'],
+                'postID' => htmlspecialchars($row['postID']),
+                'recipeName' => htmlspecialchars($row['recipeName']),
+                'cost' =>number_format(htmlspecialchars($row['cost'])),
+                'like' => htmlspecialchars($row['like']),
+                'nickname' => htmlspecialchars($row['nickname']),
+                'uploadDate' => htmlspecialchars($row['uploadDate'])
+              );
 
-          ?>
+            ?>
 
-          <tbody>
-           <tr style="height: 50px; cursor: pointer;" onclick="location.href='post.php?postID=<?=$row['postID']?>';">
-             <td style="width: 50px;"><?=$article['like']?></td>
-             <td style="width: 170px;"><?=getTitle($article['recipeName'])?></td>
-             <td>\<?=$article['cost']?></td>
-             <td><?=$article['nickname']?></td>
-           </tr>
-          </tbody>
-          <?php
+            <tbody>
+             <tr style="height: 50px; cursor: pointer;" onclick="location.href='post.php?postID=<?=$row['postID']?>';">
+               <td style="width: 50px;"><?=$article['like']?></td>
+               <td style="width: 170px;"><?=getTitle($article['recipeName'])?></td>
+               <td>\<?=$article['cost']?></td>
+               <td><?=$article['nickname']?></td>
+             </tr>
+            </tbody>
+            <?php
+          }
+          }
         }
-        }
-      }
-       ?>
-  </table>
+         ?>
+    </table>
+    </main>
   <img src="image/button_plus.png" onclick="location.href='write.php'" id="write" alt="">
   </body>
 </html>

@@ -27,7 +27,7 @@ maximum-scale=1.0, minimum-scale=1.0">
     <?php include('header.inc'); ?>
     <nav class="menu_bar">
       <input type="button" class="btn" id="cur_menu" name="공지" value="메인">
-      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='category.php'">
+      <input type="button" class="btn" name="게시판 보기" value="게시판 보기" onclick="location.href='list.php'">
     </nav>
     <div class="notice">
       <i class="fas fa-clipboard-list"></i>
@@ -50,7 +50,7 @@ maximum-scale=1.0, minimum-scale=1.0">
               );
               ?>
               <li class="item">
-                <span class="noticeText"><?=getTitle($article['description'])?></span>
+                <span class="noticeText"><?=getTitle($article['title'])?></span>
                 <span class="noticeDate"><?=substr($article['noticeDate'],0, 10)?></span>
               </li>
               <?php
