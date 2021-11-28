@@ -17,11 +17,13 @@ maximum-scale=1.0, minimum-scale=1.0">
       <h1>로그인</h1>
     </header>
 
-    <div class="content">
-      <input type="text" id="id" placeholder="아이디를 입력해주세요">
-      <input type="text" id="pw" placeholder="비밀번호를 입력해주세요">
-      <input type="button" id="login" value="login" onclick="location.href='index.php'">
-      <input type="button" id="signup" value="회원가입">
-    </div>
+    <main class="content">
+      <form action="" class="login">
+        <input type="text" id="id" placeholder="아이디를 입력해주세요">
+        <input type="text" id="pw" placeholder="비밀번호를 입력해주세요">
+        <input type="submit" id="login_submit" value="login" onclick="location.href='index.php'">
+      </form>
+      <input type="button" id="signup" value="회원가입" onclick="location.href='signup.php'">
+    </main>
   </body>
 </html>

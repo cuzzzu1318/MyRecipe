@@ -6,7 +6,6 @@
     }else{
       return $title;
     }
-
   }
  ?>
 <!DOCTYPE html>
