@@ -26,11 +26,33 @@
     $id = $_POST['id'];
     $password = $_POST['password'];
 
-    $sql = "SELECT userid, password FROM user;";
+    $sql = "SELECT userid, password FROM user WHERE userid = '{$id}';";
     $result = mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_array($result);
+    $hashedPassword = $row['password'];
+    $row ['id'];
 
+    foreach($row as $key => $r){
+
+    }
+    $passwordResult = password_verify($password, $hashedPassword);
+    if($passwordResult === true){
+      ?>
+      <script>
+        alert("로그인 성공");
+        location.href = "index.php";
+      </script>
+      <?php
+    }
+    else{
+      ?>
+      <script>
+        alert("로그인 실패");
+        location.href = "login.php";
+      </script>
+      <?php
+    }
 // 재환부분(login)
     break;
   }
