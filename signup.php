@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
@@ -14,6 +12,7 @@ maximum-scale=1.0, minimum-scale=1.0">
 <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
     <script>
     var checkID = false;
+    var checkNickName = false;
     var checkPW = false;
     $(document).ready(function(e) {
     	$(".check").on("keyup", function(){ //check라는 클래스에 입력을 감지
@@ -21,34 +20,52 @@ maximum-scale=1.0, minimum-scale=1.0">
     		var userid;
     		if(self.attr("id") === "myRecipe_id"){
     			userid = self.val();
+      		$.post(
+        		"checkID.php",
+            {  type : "id",
+              checkValue:userid},
+      			function(data){
+      				if(data.result==1){ //만약 data값이 전송되면
+      					self.parent().parent().find("p#checkID").html('회원가입이 가능한 아이디입니다.');
+      					self.parent().parent().find("p#checkID").css("color", "blue");
+                checkID = true;
+                if(checkNickName==true&&checkPW==true){
+                  $("#signup").attr("disabled", false);
+                }
+      				}else{
+                self.parent().parent().find("p#checkID").html('중복된 아이디입니다.');
+      					self.parent().parent().find("p#checkID").css("color", "red");
+                checkID = false;
+              }
+      			},
+            'json'
+      		);
+    		}else if(self.attr("id") === "myRecipe_nickname"){
+    			userNickName = self.val();
+      		$.post(
+        		"checkID.php",
+            {  type : "nickname",
+              checkValue:userNickName},
+      			function(data){
+      				if(data.result==1){ //만약 data값이 전송되면
+      					self.parent().parent().find("p#checkNickName").html('회원가입이 가능한 닉네임입니다.');
+      					self.parent().parent().find("p#checkNickName").css("color", "blue");
+                checkNickName = true;
+                if(checkID==true&&checkPW==true){
+                  $("#signup").attr("disabled", false);
+                }
+      				}else{
+                self.parent().parent().find("p#checkNickName").html('중복된 닉네임입니다.');
+      					self.parent().parent().find("p#checkNickName").css("color", "red");
+                checkNickName = false;
+              }
+      			},
+            'json'
+      		);
     		}
 
-    		$.post(
-      		"checkID.php",
-          {  type : "id",
-            checkValue:userid},
-    			function(data){
-    				if(data.result==1){ //만약 data값이 전송되면
-    					self.parent().parent().find("p").html('회원가입이 가능한 아이디입니다.'); //div태그를 찾아 html방식으로 data를 뿌려줍니다.
-    					self.parent().parent().find("p").css("color", "blue"); //div 태그를 찾아 css효과로 빨간색을 설정합니다
-              checkID = true;
-    				}else{
-              self.parent().parent().find("p").html('회원가입이 불가능한 아이디입니다.'); //div태그를 찾아 html방식으로 data를 뿌려줍니다.
-    					self.parent().parent().find("p").css("color", "red"); //div 태그를 찾아 css효과로 빨간색을 설정합니다
-              checkID = false;
-            }
-    			},
-          'json'
-    		);
     	});
     });
-    </script>
-    <script>
-        function check(){
-          if(document.getElementById('myRecipe_id').innerText=='사용 가능한 아이디입니다.'){
-             document.getElementById('signup').disabled = false;
-           }
-        }
     </script>
   </head>
 
@@ -58,9 +75,11 @@ maximum-scale=1.0, minimum-scale=1.0">
       <h1>회원가입</h1>
     </header>
     <form name="register" action="member_process.php?mode=register" onsubmit="return check()" method="post" class="signup">
-      <input type="text" class="check"name="myRecipe_id" id="myRecipe_id" placeholder="아이디를 입력해주세요" required>
-      <p id="checkID" onchange="check()"></p>
-      <input type="password" id="myRecipe_pw" placeholder="비밀번호를 입력해주세요" required>
+      <input type="text" class="check"name="myRecipe_id" id="myRecipe_id" placeholder="아이디를 입력해주세요" required pattern="^([a-z0-9]){4,12}$">
+      <div class="pattern">4-12자리의 영문 소문자와 숫자의 조합</div>
+      <p id="checkID"></p>
+      <input type="password" id="myRecipe_pw" placeholder="비밀번호를 입력해주세요" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
+      <div class="pattern">8-16자리의 영문 대,소문자와 숫자, 특수문자의 조합</div>
       <input type="password" id="myRecipe_re-pw" name="myRecipe_re-pw" placeholder="비밀번호를 재입력해주세요" required>
       <div class="match" id="pw-match" >
         <span class=pw-match>비밀번호가 일치합니다.</span>
@@ -68,7 +87,8 @@ maximum-scale=1.0, minimum-scale=1.0">
       <div class="match" id="pw-unmatch">
         <span class=pw-unmatch>비밀번호가 일치하지 않습니다.</span>
       </div>
-      <input type="text" id="myRecipe_nickname" name="myRecipe_nickname" placeholder="닉네임을 입력해주세요" required>
+      <input type="text" id="myRecipe_nickname" class="check" name="myRecipe_nickname" placeholder="닉네임을 입력해주세요" required>
+      <p id="checkNickName"></p>
       <input type="submit" id="signup" disabled value="회원가입">
     </form>
 
@@ -84,6 +104,9 @@ maximum-scale=1.0, minimum-scale=1.0">
           pw_match.style.display = "block";
           pw_unmatch.style.display = "none";
           checkPW = true;
+          if(checkNickName==true&&checkID==true){
+            $("#signup").attr("disabled", false);
+          }
         }
         else{
           pw_match.style.display = "none";
@@ -103,6 +126,9 @@ maximum-scale=1.0, minimum-scale=1.0">
             pw_match.style.display = "block";
             pw_unmatch.style.display = "none";
             checkPW = true;
+            if(checkNickName==true&&checkID==true){
+              $("#signup").attr("disabled", false);
+            }
           }
           else{
             pw_match.style.display = "none";
