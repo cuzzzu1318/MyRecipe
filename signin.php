@@ -18,7 +18,7 @@ maximum-scale=1.0, minimum-scale=1.0">
     </header>
 
     <main class="content">
-      <form action="" class="login">
+      <form action="member_process.php$mode=signin"  class="login" method="post">
         <input type="text" id="id" placeholder="아이디를 입력해주세요">
         <input type="text" id="pw" placeholder="비밀번호를 입력해주세요">
         <input type="submit" id="login_submit" value="login" onclick="location.href='index.php'">
