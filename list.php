@@ -1,5 +1,5 @@
 <?php
-  $mysqli = new mysqli("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
+  $mysqli = new mysqli("localhost", "myrecipe", "password", "myrecipe");
   if (isset($_GET['cur_page'])) {
       $cur_page = $_GET['cur_page'];
     }else {

@@ -20,6 +20,7 @@ maximum-scale=1.0, minimum-scale=1.0">
     crossorigin="anonymous">
     <link rel="stylesheet" href="myRecipe.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="post.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
   </head>
@@ -27,8 +28,9 @@ maximum-scale=1.0, minimum-scale=1.0">
     <?php include('header.inc'); ?>
     <?php include('nav.inc'); ?>
     <script type="text/javascript">
-     document.querySelector('#메인').id='cur_menu';
+     document.querySelector('#게시판').id='cur_menu';
     </script>
+
     <div class="notice">
       <i class="fas fa-clipboard-list"></i>
       <ul class="rolling">
@@ -83,54 +85,85 @@ maximum-scale=1.0, minimum-scale=1.0">
 <!-- main description -->
     <main class="description">
       <div class="recent">
-        <span class="recentPost">최근 게시물</span>
+        <span class="recentPost">현재 게시물</span>
         <button class="morePost" onclick="location.href='list.php'">더보기+</button>
       </div>
-      <table>
-        <thead>
+
+      <!--  <thead>
           <tr>
             <th scope="col">추천 수</th>
             <th scope="col">제목</th>
             <th scope="col">비용</th>
             <th scope="col">작성자</th>
           </tr>
-        </thead>
+        </thead>-->
         <?php
+        $postID=$_GET['postID'];
         $sql = "
-          SELECT * FROM recipe ORDER BY postID DESC LIMIT 5 ;
+        SELECT * FROM recipe where postID=$postID;
         ";
         $result = $mysqli->query($sql);
         if ($result == false) {
         echo $mysqli->error;
         }else{
-          if ($result->num_rows > 0) {
-            while ($row = $result->fetch_array()) {
-              $article = array(
-                'category' => $row['category'],
-                'postID' => htmlspecialchars($row['postID']),
-                'recipeName' => htmlspecialchars($row['recipeName']),
-                'cost' =>number_format(htmlspecialchars($row['cost'])),
-                'like' => htmlspecialchars($row['like']),
-                'nickname' => htmlspecialchars($row['nickname']),
-                'uploadDate' => htmlspecialchars($row['uploadDate'])
-              );
+          $row = $result->fetch_array(MYSQLI_BOTH);
+          $article = array(
+            'category' => $row['category'],
+            'postID' => htmlspecialchars($row['postID']),
+            'recipeName' => htmlspecialchars($row['recipeName']),
+            'cost' =>number_format(htmlspecialchars($row['cost'])),
+            'like' => htmlspecialchars($row['like']),
+            'nickname' => htmlspecialchars($row['nickname']),
+            'uploadDate' => htmlspecialchars($row['uploadDate']),
+            'ingrediants' => htmlspecialchars($row['ingrediants']),
+            'recipe' => htmlspecialchars($row['recipe'])
+          );
 
-            ?>
+          ?>
 
-            <tbody>
-             <tr style="height: 50px; cursor: pointer;" onclick="location.href='post.php?postID=<?=$row['postID']?>';">
-               <td style="width: 50px;"><?=$article['like']?></td>
-               <td style="width: 170px;"><?=getTitle($article['recipeName'])?></td>
-               <td><?=$article['cost']?></td>
-               <td><?=$article['nickname']?></td>
-             </tr>
-            </tbody>
-            <?php
-          }
-          }
+          <div class="content" id = "content">
+            <div class="board">
+              <div class="board_read">
+                <div class="read_header">
+                  <h2>제목: <?=getTitle($article['recipeName'])?></h2>
+                  <p class="meta">
+                    <span class="author">
+                      <a><font size="2"><?=$article['nickname']?></font></a>
+                    </span>
+                    <a>||</a>
+                    <span class="uploaddate">
+                      <a><font size="2"><?=$article['uploadDate']?> </font></a>
+                    </span>
+                    <a>||</a>
+                    <span class="like">
+                      <a><font size="2"><?=$article['like']?></font></a>
+                    </span>
+                    <hr>
+                  </p>
+                  </div>
+                  <div class="read_body">
+                    <a>재료: <?=$article['ingrediants']?></a>
+                    <br>
+                    <a>레시피 내용: <?=$article['recipe']?></a>
+                  </div>
+                  <hr>
+                  <form>
+                    <input type='button' value='Comments'onclick="location.href='comments.php'">
+                  </form>
+              </div>
+            </div>
+          </div>
+
+          <?php
         }
          ?>
-    </table>
     </main>
   </body>
+  <div class="floating">
+    <div class="box">
+      <div class="stopwatch"> StopWatch </div>
+      <div class="time"> 00:00:00 </div> <!--여기에 스톱워치 구현하기-->
+    </div>
+
+   </div>
 </html>
