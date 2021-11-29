@@ -1,48 +1,39 @@
 <?php
   $mysqli = new mysqli("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
-  $userid = $_GET['userid'];
-
-  if(!$userid){
-      echo "
-      <p>아이디를 입력해주세요.</p>
-      <center><input type=button value=창닫기 onclick='self.close()'></center>
-      ";
-  } else{
+  $type = $_POST['type'];
+  $checkValue = $_POST['checkValue'];
+  $check_ID = 0;
+  switch ($type) {
+    case 'id':
+    if ($checkValue!=NULL) {
       $sql = "
-      SELECT * FROM user WHERE userid='$userid'";
+      SELECT * FROM user WHERE userid='$checkValue'";
       $result = $mysqli->query($sql);
-      if ($result == false) {
-        echo "$mysqli->error";
+      $count = $result->fetch_array();
+      if ($count==0) {
+        echo '{"result":"1"}';
       }else{
-        if ($result->num_rows > 0) {
-          echo "
-          <p>이미 존재하는 아이디입니다.</p>
-          <center><input type=button value=창닫기 onclick='self.close()'></center>
-          ";
-        }else{
-          echo "
-          <p>사용 가능한 아이디입니다.</p>
-          <center><input type=button value=창닫기 onclick='self.close()'></center>
-          ";
-          }
-
-        }
+        echo '{"result":"0"}';
+      }
     }
-?>
-<!DOCTYPE html>
-<html lang="kor">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>중복확인</title>
-</head>
-</html>
+      break;
+    case 'nickname':
+    if ($checkValue!=NULL) {
+      $sql = "
+      SELECT * FROM user WHERE nickname='$checkValue'";
+      $result = $mysqli->query($sql);
+      $count = $result->fetch_array();
+      if ($count==0) {
+        echo '{"result":"1"}';
+      }else{
+        echo '{"result":"0"}';
+      }
+    }
+      break;
+    default:
+      // code...
+      break;
+  }
 
-<!DOCTYPE html>
-<html lang="kor">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>중복확인</title>
-</head>
-</html>
+
+?>

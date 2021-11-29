@@ -21,5 +21,9 @@
           header('Location: signin.php');
         }
     break;
+    case 'signin':
+
+// 재환부분(login)
+    break;
   }
 ?>
