@@ -1,16 +1,8 @@
-body{
-  width: 100%;
-}
-
 .logo_btn{
   display: flex;
   height: 55px;
-
+  margin: auto;
   justify-content: center;
-}
-
-option{
-  font-size: 16px;
 }
 
 .icon{
@@ -18,7 +10,7 @@ option{
 }
 
 ::placeholder{
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .content{
@@ -29,56 +21,133 @@ option{
   width: 90%;
 }
 
+.field_top{
+  display: flex;
+  height: 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.top_name{
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .field{
   display: flex;
   flex-direction: row;
-  height: 50px;
+  align-items: flex-start;
+  /* height: 50px; */
   margin-bottom: 20px;
+  justify-content: space-between;
   width: 100%;
-  max-width: 600px;
 }
 
 .textbox{
   border: none;
-  width: 130px;
+  width: 100px;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 14px;
+  color: #424242;
 }
 
 .inputbox{
   font-size: 16px;
   border-radius: 5px;
   padding-left: 10px;
-  width: 600px;
   background-color: #F5F5F5;
   border: 1px solid #E1E1E1;
 }
 
-#slc_category{
-  width: 613px;
+#slc_category, .inputbox{
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+}
+
+option{
+  font-size: 14px;
+}
+
+.box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add, .recipe_add{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 
 .ing{
   display: flex;
-  min-width: 0px;
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
-#recipre_ing{
-  width: 295px;
+.field_btn_add{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_plus{
+  width: 40px;
+  height: 40px;
+}
+
+.img_minus{
+  width: 25px;
+  height: 25px;
+}
+
+.btn_plus, .btn_minus, .btn_recipe_minus, .btn_recipe_plus{
+  border: none;
+  height: 50px;
+  padding: 0;
+  background-color: white;
+  cursor: pointer;
+}
+
+#recipe_ing{
+  height: 50px;
+  min-width: 10px;
   margin-right: 10px;
-  min-width: 10px;
+  box-sizing: border-box;
 }
 
-#ing_cost{
-  width: 295px;
-  min-width: 10px;
-}
-
-.recipe{
-
+span{
+  font-size: 25px;
+  font-weight: 600;
+  padding-right: 10px;
 }
 
 .write{
-  display: flex;
-  justify-content: center;
+  display: block;
+  border: 1px solid #e6e7e8;
+  background: #fff;
+  text-align: center;
+  padding: 35px 0 40px 0;
+  border-top: none;
+}
+
+#btn_write{
+  line-height: 1.3333333;
+  border-radius: 3px;
+  color: #fff;
+  margin: 0 4px;
+  padding: 12px 50px;
+  font-size: 18px;
+  border: none;
+  background-color: #83A98A;
+  height: 50px;
+  cursor: pointer;
 }
