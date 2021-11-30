@@ -1,0 +1,101 @@
+.description{
+  width: 95%;
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 5px;
+  min-height: 640px;
+}
+
+.modAndDel{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.modAndDel a{
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+
+.postHead{
+  width: 100%;
+  display: flex;
+  justify-content : space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.postHead .title{
+  font-size: 16px;
+  width: 100%;
+  height: 30px;
+  justify-content: center;
+  border-bottom: 0.5px solid var(--main-color);
+  display: flex;
+  align-items: center;
+}
+
+.postHead .writeAndTime{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.postHead .writeAndTime .writer{
+  margin-right: 10px;
+  text-align: center;
+}
+
+.post{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingrediants{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ingrediants .ing_title{
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.ingrediants .ingre{
+  margin-right: 20%;
+}
+
+.recipeBox{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.recipeBox .recipe_title{
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.recipeBox .recipes{
+  margin-right: 20%;
+}
+
+.like{
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.like i{
+  font-size: 20px;
+  margin-right: 10px;
+}
