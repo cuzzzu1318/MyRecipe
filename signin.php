@@ -1,3 +1,13 @@
+<?php
+session_start();
+include('session_check.inc');
+if(!empty($_SESSION["userid"])){
+?>
+<script>
+  alert('이미 로그인 된 상태입니다.');
+</script>
+<?php } ?>
+
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
@@ -19,8 +29,8 @@ maximum-scale=1.0, minimum-scale=1.0">
 
     <main class="content">
       <form action="member_process.php?mode=signin"  class="login" method="post">
-        <input type="text" id="id" placeholder="아이디를 입력해주세요">
-        <input type="text" id="pw" placeholder="비밀번호를 입력해주세요">
+        <input type="text" id="id" name="id" placeholder="아이디를 입력해주세요">
+        <input type="passwordt" id="pw" name="password" placeholder="비밀번호를 입력해주세요">
         <input type="submit" id="login_submit" value="login" onclick="location.href='index.php'">
       </form>
       <input type="button" id="signup" value="회원가입" onclick="location.href='signup.php'">

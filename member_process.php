@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $mysqli = new mysqli("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
   switch($_GET['mode']){
     case 'register':
@@ -23,36 +24,23 @@
     break;
     case 'signin':
     $conn = mysqli_connect("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
+
     $id = $_POST['id'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT userid, password FROM user WHERE userid = '{$id}';";
-    $result = mysqli_query($conn, $sql);
-
-    $row = mysqli_fetch_array($result);
-    $hashedPassword = $row['password'];
-    $row ['id'];
-
-    foreach($row as $key => $r){
-
+    $sql = "SELECT * FROM user WHERE userid = '$id';";//쿼리문 작성
+    $result = mysqli_query($conn, $sql);//결과 저장
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_array();
+      $article = array(
+        'id' => htmlspecialchars($row['userid']),
+        'pw' => htmlspecialchars($row['password']),
+        'nickname' => htmlspecialchars($row['nickname'])
+      );
+      echo $article['nickname'];
+      echo $article['id'];
+      echo $article['pw'];
     }
-    $passwordResult = password_verify($password, $hashedPassword);
-    if($passwordResult === true){
-      ?>
-      <script>
-        alert("로그인 성공");
-        location.href = "index.php";
-      </script>
-      <?php
-    }
-    else{
-      ?>
-      <script>
-        alert("로그인 실패");
-        location.href = "login.php";
-      </script>
-      <?php
-    }
+    $_SESSION['userid']=$article['id'];
+    $_SESSION['signin_time'] = time();
 // 재환부분(login)
     break;
   }
