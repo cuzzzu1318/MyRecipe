@@ -24,13 +24,13 @@ maximum-scale=1.0, minimum-scale=1.0">
         </div>
         <div class="field" name="title">
           <input type="text" class="textbox" id="recipe_title" value="레시피 제목">
-          <input type="text" class="inputbox" id="input_title" placeholder="예) 김치볶음밥 만들기">
+          <input type="text" class="inputbox" id="input_title" placeholder="예) 김치볶음밥 만들기" name="recipeName" required>
         </div>
 
-        <div class="field" name="category">
+        <div class="field">
           <input type="text" class="textbox" id="recipe_title" value="카테고리">
-          <select class="inputbox" id="slc_category">
-            <option style="color: rgba(0, 0, 0, 0.54)">종류를 선택해주세요.</option>
+          <select class="inputbox" id="slc_category" name="category">
+            <option style="color: rgba(0, 0, 0, 0.54)" value="전체">종류를 선택해주세요.</option>
             <option>한식</option>
             <option>중식</option>
             <option>일식</option>
@@ -44,7 +44,7 @@ maximum-scale=1.0, minimum-scale=1.0">
 
         <div class="field" name="cost">
           <input type="text" class="textbox" id="recipe_cost" value="레시피 가격">
-          <input type="text" class="inputbox" id="input_cost" placeholder="예) 5000원">
+          <input type="text" class="inputbox" id="input_cost" placeholder="예) 5000원" pattern="^[0-9]?" required>
         </div>
 
         <div class="field" name="ingredient">
@@ -52,7 +52,7 @@ maximum-scale=1.0, minimum-scale=1.0">
           <div class="box" >
             <div class="add">
               <div class="ing">
-                <input type="text" class="inputbox" id="recipe_ing" placeholder="예) 설탕 1T">
+                <input type="text" class="inputbox" name = "ingredient[]" id="recipe_ing" placeholder="예) 설탕 1T">
                 <button type="button" class="btn_minus"><img src="image/button_minus.png" class="img_minus"></button>
               </div>
             </div>
@@ -68,7 +68,7 @@ maximum-scale=1.0, minimum-scale=1.0">
             <div class="recipe_add">
               <div class="ing">
                 <span>1</span>
-                <input type="text" class="inputbox" id="recipe_ing" placeholder="예) 파를 다듬은 뒤 적당한 크기로 썰어주세요">
+                <input type="text" class="inputbox" name="recipe[]" id="recipe_ing" placeholder="예) 파를 다듬은 뒤 적당한 크기로 썰어주세요">
                 <button type="button" class="btn_recipe_minus"><img src="image/button_minus.png" class="img_minus"></button>
               </div>
             </div>
@@ -86,7 +86,7 @@ maximum-scale=1.0, minimum-scale=1.0">
         $(document).ready(function(){
           $(".btn_plus").click(function(){
             $('.add').append(
-              '<div class="ing"> <input type="text" class="inputbox" id="recipe_ing" placeholder="예) 설탕 1T"> <button type="button" class="btn_minus"><img src="image/button_minus.png" class="img_minus"></button> </div>'
+              '<div class="ing"> <input type="text" name = "ingredient[]" class="inputbox" id="recipe_ing" placeholder="예) 설탕 1T"> <button type="button" class="btn_minus"><img src="image/button_minus.png" class="img_minus"></button> </div>'
             );
             $('.btn_minus').on('click',function(){
               $(this).parent().remove();
@@ -101,7 +101,7 @@ maximum-scale=1.0, minimum-scale=1.0">
           var i = 2;
           $(".btn_recipe_plus").click(function(){
 
-            $('.recipe_add').append("<div class='ing'> <span>"+i+"</span> <input type='text' class='inputbox' id='recipe_ing' placeholder='예) 파를 다듬은 뒤 적당한 크기로 썰어주세요'> <button type='button' class='btn_recipe_minus'><img src='image/button_minus.png' class='img_minus'></button> </div>");
+            $('.recipe_add').append("<div class='ing'> <span>"+i+"</span> <input type='text' class='inputbox' name='recipe[]'' id='recipe_ing' placeholder='예) 파를 다듬은 뒤 적당한 크기로 썰어주세요'> <button type='button' class='btn_recipe_minus'><img src='image/button_minus.png' class='img_minus'></button> </div>");
               i++;
             $('.btn_recipe_minus').on('click',function(){-
               i--;
