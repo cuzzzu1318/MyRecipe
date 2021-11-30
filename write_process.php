@@ -41,8 +41,8 @@ function getRealClientIp() {
   }
   if (empty($_POST['recipeName'])==false&&empty($_POST['recipe'])==false) {
     $filterd = array(
-      'title'=>$mysqli->real_escape_string($_POST['title']),
-      'content'=>$mysqli->real_escape_string($_POST['content'])
+      'recipeName'=>$mysqli->real_escape_string($_POST['recipeName']),
+      'recipe'=>$mysqli->real_escape_string($_POST['recipe'])
     );
     if (!empty($_FILES['image']['name'])) {
       $dir = './image';

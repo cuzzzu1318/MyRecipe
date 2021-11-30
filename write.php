@@ -18,7 +18,7 @@ maximum-scale=1.0, minimum-scale=1.0">
     </header>
 
     <main class="content">
-      <form action="write_process.php" method="post">
+      <form action="write_process1.php" method="post">
         <div class="field_top" name="name">
           <input type="text" class="top_name" value="레시피 등록">
         </div>
@@ -44,7 +44,7 @@ maximum-scale=1.0, minimum-scale=1.0">
 
         <div class="field" name="cost">
           <input type="text" class="textbox" id="recipe_cost" value="레시피 가격">
-          <input type="text" class="inputbox" id="input_cost" placeholder="예) 5000원" pattern="^[0-9]?" required>
+          <input type="text" class="inputbox" id="input_cost" placeholder="예) 5000원" name="cost" pattern="\d*" required>
         </div>
 
         <div class="field" name="ingredient">
