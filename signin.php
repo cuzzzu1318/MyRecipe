@@ -1,11 +1,11 @@
 <?php
 session_start();
-include('session_check.inc');
+// include('session_check.inc');
 if(!empty($_SESSION["userid"])){
 ?>
 <script>
-  alert('이미 로그인 된 상태입니다.');
-  location.href = "index.php";
+  // alert('마이페이지로 이동');
+  location.href = "mypage.php";
 </script>
 <?php } ?>
 
