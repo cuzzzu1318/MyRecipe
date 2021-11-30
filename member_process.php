@@ -24,7 +24,7 @@
     break;
     case 'signin':
     $conn = mysqli_connect("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
-
+    $pw = $_POST['pw'];
     $id = $_POST['id'];
     $sql = "SELECT * FROM user WHERE userid = '$id';";//쿼리문 작성
     $result = mysqli_query($conn, $sql);//결과 저장
@@ -36,13 +36,13 @@
         'nickname' => htmlspecialchars($row['nickname'])
       );
     }
-    if($pw === $article['password']){
+    if($pw == $article['pw']){
       $_SESSION['userid']=$article['id'];
       $_SESSION['signin_time'] = time();
       ?>
       <script>
         alert('로그인 성공');
-        location.href = "index.php";
+        // location.href = "index.php";
       </script>
       <?php
     }
@@ -50,7 +50,7 @@
       ?>
       <script>
         alert('로그인 실패');
-        location.href = "signin.php";
+        // location.href = "signin.php";
       </script>
       <?php
     }
