@@ -35,12 +35,27 @@
         'pw' => htmlspecialchars($row['password']),
         'nickname' => htmlspecialchars($row['nickname'])
       );
-      echo $article['nickname'];
-      echo $article['id'];
-      echo $article['pw'];
     }
-    $_SESSION['userid']=$article['id'];
-    $_SESSION['signin_time'] = time();
+    if($pw === $article['password']){
+      $_SESSION['userid']=$article['id'];
+      $_SESSION['signin_time'] = time();
+      ?>
+      <script>
+        alert('로그인 성공');
+        location.href = "index.php";
+      </script>
+      <?php
+    }
+    else{
+      ?>
+      <script>
+        alert('로그인 실패');
+        location.href = "signin.php";
+      </script>
+      <?php
+    }
+    ?>
+    <?php
 // 재환부분(login)
     break;
   }
