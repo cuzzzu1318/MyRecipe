@@ -38,7 +38,11 @@ h1{
   margin: 0 10px;
   padding-bottom: 10px;
 }
-
+.comments li{
+  list-style: none;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #CCC;
+}
 .view{
   width: 100%;
   box-sizing: border-box;

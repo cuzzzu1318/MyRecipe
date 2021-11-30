@@ -1,10 +1,10 @@
 <?php
 $conn = mysqli_connect("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
-$sql = "SELECT * FROM comments";
+$sql = "SELECT * FROM comments WHERE postID=1;";
 $result = mysqli_query($conn, $sql);
 $list = '';
 while($row = mysqli_fetch_array($result)) {
-  $list = $list."<li>{$row['comment']}</li>";
+  $list = $list."<li><strong>{$row['nickname']}</strong><br>{$row['comment']}</li>";
 }
 ?>
 <!DOCTYPE html>
@@ -35,11 +35,10 @@ maximum-scale=1.0, minimum-scale=1.0">
         <div class="per">
           <div class="watch_nickname">
             <div class="nickname">
-              <span>닉네임</span>
-            </div>
-            <div class="view">
-              <input type="text" class="view_text">
-            </div>
+              <div class="comments">
+                <?php
+                  echo $list;
+                 ?>
           </div>
         </div>
       </div>
