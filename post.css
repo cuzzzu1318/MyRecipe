@@ -80,9 +80,11 @@
 }
 
 .recipeBox .recipe_title{
+  width: 30%;
   font-size: 12px;
   display: flex;
   align-items: center;
+  margin-right: 10px;
 }
 
 .recipeBox .recipes{
@@ -94,6 +96,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-bottom: 30px;
 }
 .like i{
   font-size: 20px;
