@@ -25,20 +25,38 @@ function GetUniqFileName($FN, $PN)
   echo $ingredients.'<br>';
   $recipe = $mysqli->real_escape_string(implode('MRCUT',$_POST['recipe']));
   echo $recipe;
-  $sql = "
-  INSERT INTO recipe
-    (category, recipeName, ingrediants, recipe, cost, nickname, uploadDate)
-    VALUES(
-      '{$category}',
-      '{$recipeName}',
-      '{$ingrediants}',
-      '{$recipe}',
-      '{$cost}',
-      (SELECT nickname FROM user WHERE userid = '{$_SESSION['userid']}'),
-      NOW()
-    )
-  ";
-
+  if (!empty($_FILES['image']['name'])) {
+      $dir = './image';
+      $name = GetUniqFileName($_FILES['image']['name'], $dir);
+      move_uploaded_file($_FILES['image']['tmp_name'], "$dir/$name");
+      $sql = "
+      INSERT INTO recipe
+        (category, recipeName, ingrediants, recipe, cost, nickname, uploadDate)
+        VALUES(
+          '{$_POST['found']}',
+          '{$_POST['select']}',
+          '{$filterd['title']}',
+          '{$filterd['content']}',
+          '{$name}',
+          '{$ip}',
+          NOW()
+        )
+      ";
+    }else{
+      $sql = "
+      INSERT INTO recipe
+        (category, recipeName, ingrediants, recipe, cost, nickname, uploadDate)
+        VALUES(
+          '{$category}',
+          '{$recipeName}',
+          '{$ingrediants}',
+          '{$recipe}',
+          '{$cost}',
+          (SELECT nickname FROM user WHERE userid = '{$_SESSION['userid']}'),
+          NOW()
+        )
+      ";
+    }
     $result = $mysqli->query($sql);
     if ($result == false) {
       echo $mysqli->error;

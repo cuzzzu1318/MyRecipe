@@ -109,7 +109,7 @@ maximum-scale=1.0, minimum-scale=1.0">
                 'postID' => htmlspecialchars($row['postID']),
                 'recipeName' => htmlspecialchars($row['recipeName']),
                 'cost' =>number_format(htmlspecialchars($row['cost'])),
-                'like' => htmlspecialchars($row['like']),
+                'like' => htmlspecialchars($row['likes']),
                 'nickname' => htmlspecialchars($row['nickname']),
                 'uploadDate' => htmlspecialchars($row['uploadDate'])
               );

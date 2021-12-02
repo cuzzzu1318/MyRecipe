@@ -123,7 +123,7 @@ maximum-scale=1.0, minimum-scale=1.0">
                 'postID' => htmlspecialchars($row['postID']),
                 'recipeName' => htmlspecialchars($row['recipeName']),
                 'cost' =>number_format(htmlspecialchars($row['cost'])),
-                'like' => htmlspecialchars($row['like']),
+                'like' => htmlspecialchars($row['likes']),
                 'nickname' => htmlspecialchars($row['nickname']),
                 'uploadDate' => htmlspecialchars($row['uploadDate'])
               );
@@ -134,7 +134,7 @@ maximum-scale=1.0, minimum-scale=1.0">
              <tr style="height: 50px; cursor: pointer;" onclick="location.href='post.php?postID=<?=$row['postID']?>';">
                <td style="width: 50px;"><?=$article['like']?></td>
                <td style="width: 170px;"><?=getTitle($article['recipeName'])?></td>
-               <td><?=$article['cost']?></td>
+               <td><?=$article['cost']?>원</td>
                <td><?=$article['nickname']?></td>
              </tr>
             </tbody>

@@ -1,4 +1,5 @@
 <?php
+session_start();
   $mysqli = new mysqli("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
   if (isset($_GET['postID'])) {
     $postID = $_GET['postID'];
@@ -22,7 +23,7 @@
         'ingrediants' => htmlspecialchars($row['ingrediants']),
         'recipe' => htmlspecialchars($row['recipe']),
         'cost' => htmlspecialchars($row['cost']),
-        'like' => htmlspecialchars($row['like']),
+        'like' => htmlspecialchars($row['likes']),
         'nickname' => htmlspecialchars($row['nickname']),
         'uploadDate' => substr(htmlspecialchars($row['uploadDate']), 2, 14)
       );
@@ -30,7 +31,6 @@
       echo '<script>alert("잘못된 접근입니다!");</script>';
       echo("<script>location.replace('list.php');</script>");
     }
-
   }
 
 
@@ -42,12 +42,9 @@
     <meta charset="utf-8"  name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,
 maximum-scale=1.0, minimum-scale=1.0">
     <title>MyRecipe</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-    crossorigin="anonymous">
     <link rel="stylesheet" href="myRecipe.css">
     <link rel="stylesheet" href="post.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bdb80102e7.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
   </head>
   <body>
@@ -60,20 +57,39 @@ maximum-scale=1.0, minimum-scale=1.0">
      		var self = $(this);
        		$.post(
          		"checkLike.php",
-             {  postID : self.find(".hiddenID").attr('id')},
+             { mode : "like",
+               postID : self.find(".hiddenID").attr('id')},
        			function(data){
        				if(data.result==1){ //만약 data값이 전송되면
-       					self.child().find(".far fa-heart").class('fas fa-heart');
-       					self.parent().parent().find("p#checkID").css("color", "blue");
+       					$("i#empty").attr('class','fas fa-heart');
+                var cntv = $("span#cnt").text();
+                cntv*=1;
+                $("span#cnt").html(cntv+1);
+       					$("i#empty").css("color", "red");
        				}else{
-                 self.parent().parent().find("p#checkID").html('중복된 아이디입니다.');
-       					self.parent().parent().find("p#checkID").css("color", "red");
-               }
+                $("i#empty").attr('class','far fa-heart');
+                var cntv = $("span#cnt").text();
+                cntv*=1;
+                $("span#cnt").html(cntv-1);
+       					$("i#empty").css("color", "black");
+              }
        			},
              'json'
            );
 
      	});
+      $.post(
+        "checkLike.php",
+         {  mode : "check",
+           postID : $('div.hiddenID').attr('id')},
+        function(data){
+          if(data.result==1){ //만약 data값이 전송되면
+            $('i#empty').attr('class','fas fa-heart');
+            $('i#empty').css("color", "blue");
+          }
+        },
+         'json'
+       );
      });
     </script>
     <main class="description">
@@ -114,10 +130,13 @@ maximum-scale=1.0, minimum-scale=1.0">
            ?>
           </div>
         </div>
-        <div class="like" id="likes">
+        <div <?php if(empty($_SESSION["userid"])){
+          echo 'style="display: none;"';
+        } ?> class="like" id="likes">
           <div class="hiddenID" style="display: none;" <?php echo "id='".$article['postID']."'"; ?>></div>
-          <i class="far fa-heart"></i>
-          <span>좋아요</span>
+          <i class="far fa-heart" id="empty"></i>
+          <span id="cnt"><?=$article['like']?></span>
+
         </div>
       </div>
     </main>
