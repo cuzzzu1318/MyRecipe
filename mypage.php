@@ -87,10 +87,8 @@ maximum-scale=1.0, minimum-scale=1.0">
           <div class="content" id="conent">
             <section class="xm">
               <ul class="nav nav-tabs">
-                <li>
                   <h1>회원 정보</h1>
 
-                </li>
                 <li>
                   <a>내가 쓴 글</a>
                 </li>
@@ -101,6 +99,7 @@ maximum-scale=1.0, minimum-scale=1.0">
                   <a>내가 좋아요 한 글</a>
                 </li>
               </ul>
+              <input type="button" name="logout" value="로그아웃" onclick="location.href='logout.php'">
             </section>
           </div>
         </div>
