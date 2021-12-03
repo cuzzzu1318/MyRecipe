@@ -88,7 +88,22 @@
 }
 
 .recipeBox .recipes{
-  margin-right: 20%;
+  margin-right: 10px;
+  flex-basis: 70%;
+}
+
+.recipeBox .cook{
+  width: 100%;
+  min-height: 100px;
+  border-bottom: 0.5px solid var(--green-light-color);
+}
+
+.picturebox{
+  width: 100%;
+}
+
+.recipes #pic{
+  min-width: 100px;
 }
 
 .like{

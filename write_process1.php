@@ -22,17 +22,18 @@ function GetUniqFileName($FN, $PN)
   $category = $mysqli->real_escape_string($_POST['category']);
   $cost = $mysqli->real_escape_string($_POST['cost']);
   $ingrediants = $mysqli->real_escape_string(implode('MRCUT',$_POST['ingredient']));
-  echo $ingredients.'<br>';
   $recipe = $mysqli->real_escape_string(implode('MRCUT',$_POST['recipe']));
   echo $recipe;
-  if (!empty($_FILES['image']['name'])) {
-    $dir = './image';
+  if (!empty($_FILES['img_file']['name'])) {
+    $dir = './upload';
     $img = $_FILES['img_file'];
     $name = $img['name'];
     $cnt = count($img['name']);
      while ($cnt>0) {
-       $img['name'][$cnt-1] = GetUniqFileName($img['name'][$cnt-1], $dir);
-       $cc = $img['name'][$cnt-1];
+       if (!empty($img['name'][$cnt-1])) {
+         $img['name'][$cnt-1] = GetUniqFileName($img['name'][$cnt-1], $dir);
+         $cc = $img['name'][$cnt-1];
+       }
        move_uploaded_file($img['tmp_name'][$cnt-1], "$dir/$cc");
        $cnt--;
      }
@@ -47,7 +48,7 @@ function GetUniqFileName($FN, $PN)
           '{$recipe}',
           '{$cost}',
           (SELECT nickname FROM user WHERE userid = '{$_SESSION['userid']}'),
-          '{$name}'
+          '{$name}',
           NOW()
         )
       ";
