@@ -19,7 +19,7 @@ maximum-scale=1.0, minimum-scale=1.0">
     crossorigin="anonymous">
     <link rel="stylesheet" href="myRecipe.css">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bdb80102e7.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
   </head>
   <body>
