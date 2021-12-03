@@ -16,6 +16,37 @@
       }
 
     }
+    $cate = "";
+    $s_key1 = "";
+    function getQuery(){
+      $sql = "
+        SELECT * FROM recipe
+      ";
+      if(isset($_GET['s_key'])){
+        global $s_key1;
+        $s_key1 = $_GET['s_key'];
+        $s_key = "%".$s_key1."%";
+        $sql=$sql." WHERE (recipeName LIKE '$s_key' or ingrediants LIKE '$s_key' or nickname LIKE '$s_key')
+        ";
+      }
+      if(isset($_GET['cate'])&&$_GET['cate']!='전체'){
+        global $cate;
+        $cate = $_GET['cate'];
+        if(isset($_GET['s_key'])){
+          $sql=$sql." and category = '$cate'";
+        }else{
+          $sql = $sql."where category = '$cate'";
+        }
+      }
+      global $start;
+      global $show;
+      $sql=$sql." ORDER BY postID DESC LIMIT $start, $show;";
+      return $sql;
+    }
+    $formGet = "";
+    if(isset($_GET['s_key'])){
+      $formGet = $formGet."?s_key=".$_GET['s_key'];
+    }
  ?>
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
@@ -35,11 +66,11 @@ maximum-scale=1.0, minimum-scale=1.0">
     <script type="text/javascript">
      document.querySelector('#게시판').id='cur_menu';
     </script>
-    <form class="" action="list.php" method="post">
+    <form class="" action="list.php" method="get">
       <div class="category">
         <select class="mr_select" id="category" onchange="submit()" name="cate">
           <option
-          <?php if(isset($_POST['cate'])&&$_POST['cate']=='전체'){
+          <?php if(isset($_GET['cate'])&&$_GET['cate']=='전체'){
             echo "selected";
           } ?>
             value="전체"
@@ -47,49 +78,56 @@ maximum-scale=1.0, minimum-scale=1.0">
             전체
           </option>
           <option value="한식"
-          <?php if(isset($_POST['cate'])&&$_POST['cate']=='한식'){
+          <?php if(isset($_GET['cate'])&&$_GET['cate']=='한식'){
             echo "selected";
           } ?>
           >
             한식
           </option>
-          <option value="중식"<?php if(isset($_POST['cate'])&&$_POST['cate']=='중식'){
+          <option value="중식"<?php if(isset($_GET['cate'])&&$_GET['cate']=='중식'){
             echo "selected";
           } ?>>
             중식
           </option>
-          <option <?php if(isset($_POST['cate'])&&$_POST['cate']=='양식'){
+          <option <?php if(isset($_GET['cate'])&&$_GET['cate']=='양식'){
             echo "selected";
           } ?>>
             양식
           </option>
-          <option <?php if(isset($_POST['cate'])&&$_POST['cate']=='일식'){
+          <option <?php if(isset($_GET['cate'])&&$_GET['cate']=='일식'){
             echo "selected";
           } ?>>
             일식
           </option>
-          <option <?php if(isset($_POST['cate'])&&$_POST['cate']=='분식'){
+          <option <?php if(isset($_GET['cate'])&&$_GET['cate']=='분식'){
             echo "selected";
           } ?>>
             분식
           </option>
-          <option <?php if(isset($_POST['cate'])&&$_POST['cate']=='아시안'){
+          <option <?php if(isset($_GET['cate'])&&$_GET['cate']=='아시안'){
             echo "selected";
           } ?>>
             아시안
           </option>
-          <option <?php if(isset($_POST['cate'])&&$_POST['cate']=='아시안'){
+          <option <?php if(isset($_GET['cate'])&&$_GET['cate']=='아시안'){
             echo "selected";
           } ?>>
             패스트푸드
           </option>
-          <option <?php if(isset($_POST['cate'])&&$_POST['cate']=='디저트'){
+          <option <?php if(isset($_GET['cate'])&&$_GET['cate']=='디저트'){
             echo "selected";
           } ?>>
             디저트
           </option>
         </select>
       </div>
+      <?php
+        if(isset($_GET['s_key'])){
+          echo <<<key
+          <input style="display: none;"type="text" name="s_key" value="{$_GET['s_key']}">
+          key;
+        }
+       ?>
     </form>
     <main class="description">
       <table>
@@ -102,16 +140,7 @@ maximum-scale=1.0, minimum-scale=1.0">
           </tr>
         </thead>
         <?php
-        if(isset($_POST['cate'])&&$_POST['cate']!='전체'){
-          $cate = $_POST['cate'];
-          $sql = "
-            SELECT * FROM recipe WHERE category = '$cate' ORDER BY postID DESC LIMIT $start, $show ;
-          ";
-        }else{
-          $sql = "
-            SELECT * FROM recipe ORDER BY postID DESC LIMIT $start, $show ;
-          ";
-        }
+        $sql = getQuery();
         $result = $mysqli->query($sql);
         if ($result == false) {
         echo $mysqli->error;
@@ -148,39 +177,36 @@ maximum-scale=1.0, minimum-scale=1.0">
   <div id="page">
     <div id="prev">
       <?php
+      $getVal = "";
+      if(isset($_GET['s_key'])){
+        $getVal = $getVal."&s_key=".$_GET['s_key'];
+      }if(isset($_GET['cate'])){
+        $getVal = $getVal."&s_key=".$_GET['cate'];
+      }
       if ($cur_page>1) {
         $prev_page = $cur_page-1;
         echo "
-        <a href=\"list.php?cur_page=$prev_page\">이전</a>
+        <a href=\"list.php?cur_page=$prev_page".$getVal."\">이전</a>
         ";
       }
       ?>
     </div>
     <div id="pages">
       <?php
-      if(isset($_POST['cate'])&&$_POST['cate']!='전체'){
-        $cate = $_POST['cate'];
-        $sql = "
-          SELECT COUNT(*) FROM recipe WHERE category = '$cate';
-        ";
-      }else{
-        $sql = "
-          SELECT COUNT(*) FROM recipe;
-        ";
-      }
+      $sql =  substr($sql,0, strlen($sql)-34);
       $result = $mysqli->query($sql);
-      $row = $result->fetch_array();
+      $row = $result->num_rows;
       $page = 1;
-      for ($count=0; $count < $row[0]; $count++) {
+      for ($count=0; $count < $row; $count++) {
         if ($count%10==1) {
           if ($cur_page==$page) {
             echo "
-            <a class=\"pagenum\" href=\"list.php?cur_page=$page\">$page</a>
+            <a class=\"pagenum\" href=\"list.php?cur_page=$page".$getVal."\">$page</a>
             ";
           }
           else {
             echo "
-            <a class=\"pagenum\" href=\"list.php?cur_page=$page\">$page</a>
+            <a class=\"pagenum\" href=\"list.php?cur_page=$page".$getVal."\">$page</a>
             ";
           }
           $page++;
@@ -193,7 +219,7 @@ maximum-scale=1.0, minimum-scale=1.0">
       if ($cur_page<$page-1) {
         $next_page = $cur_page+1;
         echo "
-        <a href=\"list.php?cur_page=$next_page\">다음</a>
+        <a href=\"list.php?cur_page=$next_page".$getVal."\">다음</a>
         ";
       }
        ?>
