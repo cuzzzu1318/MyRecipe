@@ -154,21 +154,79 @@ maximum-scale=1.0, minimum-scale=1.0">
       </div>
     </main>
     <div class="foot">
-      <div <?php if(empty($_SESSION["userid"])){
-        echo 'style="display: none;"';
-      } ?> class="like" id="likes">
-        <div class="hiddenID" style="display: none;" <?php echo "id='".$article['postID']."'"; ?>></div>
-        <i class="far fa-heart" id="empty"></i>
-        <div id="cnt"><?=$article['like']?></div>
+      <div class="timebox">
+        <span>타이머</span>
+        <input type="text" id="min" value=""><span>분</span>
+        <input type="text" id="sec" value=""><span>초</span>
+        <button type="button" id="set" name="button">실행</button>
+        <button type="button" id="stop" name="button">일시정지</button>
+        <button type="button" id="reset" name="button">리셋</button>
       </div>
-      <div id="comment" onclick="location.href='comments.php?postID=<?=$article['postID']?>'">
-        <?php
-          $sql_comment = "select COUNT(*) FROM comments WHERE postID = '{$article['postID']}'";
-          $result = $mysqli->query($sql_comment);
-          $row = $result->fetch_array(MYSQLI_BOTH);
-          echo "댓글 ".$row['COUNT(*)'];
-         ?>
+      <div class="foot_wrap">
+        <div <?php if(empty($_SESSION["userid"])){
+          echo 'style="display: none;"';
+        } ?> class="like" id="likes">
+          <div class="hiddenID" style="display: none;" <?php echo "id='".$article['postID']."'"; ?>></div>
+          <i class="far fa-heart" id="empty"></i>
+          <div id="cnt"><?=$article['like']?></div>
+        </div>
+        <div id="comment" onclick="location.href='comments.php?postID=<?=$article['postID']?>'">
+          <?php
+            $sql_comment = "select COUNT(*) FROM comments WHERE postID = '{$article['postID']}'";
+            $result = $mysqli->query($sql_comment);
+            $row = $result->fetch_array(MYSQLI_BOTH);
+            echo "댓글 ".$row['COUNT(*)'];
+           ?>
+        </div>
       </div>
     </div>
+    <script type="text/javascript">
+      var m = document.getElementById("min");
+      var s = document.getElementById("sec");
+      var set = document.getElementById("set");
+      var stop = document.getElementById("stop");
+      var reset = document.getElementById("reset");
+      var time;
+      var x;
+
+      set.addEventListener("click",function(){
+        time = parseInt(m.value) * 60 + parseInt(s.value) -1;
+        var min;
+        var sec;
+        x = setInterval(function(){
+
+          min = parseInt(time / 60);
+          sec = time % 60;
+
+          if(sec < 10){
+            m.value = min;
+            s.value = "0" + sec;
+          }
+          else{
+            m.value = min;
+            s.value = sec;
+          }
+
+          time--;
+
+          if(time < -1){
+            clearInterval(x);
+            alert("타이머가 종료되었습니다.");
+            m.value = null;
+            s.value = null;
+          }
+        }, 1000);
+      });
+
+      stop.addEventListener("click",function(){
+        clearInterval(x);
+      });
+
+      reset.addEventListener("click",function(){
+        clearInterval(x);
+        m.value = null;
+        s.value = null;
+      });
+    </script>
   </body>
 </html>
