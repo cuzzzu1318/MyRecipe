@@ -136,8 +136,11 @@ maximum-scale=1.0, minimum-scale=1.0">
             $i = 0;
             while($i<$cnt){
               $num = $i+1;
+              echo "<div class='cook'><div class='recipe'><h2>".$num."</h2>";
               if($data[0][$i]!=""){
-                echo "<div class='cook'><div class='recipe'><h2>".$num."</h2>".$data[0][$i]."</div>";
+                echo $data[0][$i]."</div>";
+              }else{
+                echo "</div>";
               }
               if($data[1][$i]!=""){
                 echo "<img src='upload/".$data[1][$i]."' id='pic'></div>";
