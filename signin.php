@@ -1,13 +1,28 @@
 <?php
 session_start();
-// include('session_check.inc');
-if(!empty($_SESSION["userid"])){
+if(!empty($_SESSION["userid"])){//세션이 있는 경우
+    if(time() - $_SESSION["signin_time"] > 60 * 60) {  //세션 지속시간 체크
+        unset($_SESSION["userid"]);
+        session_unset();
+        session_destroy();
+        ?>
+        <script>
+          alert('세션이 만료되었습니다.');
+          location.href='index.php';
+        </script>
+    <?php
+    }
+    else{//세션 갱신
+      $_SESSION['signin_time'] = time();
+      ?>
+      <script>
+        // alert('마이페이지로 이동');
+        location.href = "mypage.php";
+      </script>
+      <?php
+    }
+}
 ?>
-<script>
-  // alert('마이페이지로 이동');
-  location.href = "mypage.php";
-</script>
-<?php } ?>
 
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">

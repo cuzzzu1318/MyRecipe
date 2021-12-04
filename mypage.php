@@ -10,17 +10,32 @@
       return $title;
     }
   }
-  // $sql = "SELECT * FROM user;";
-  // $result = mysqli_query($conn, $sql);
-  // if ($result->num_rows > 0) {
-  //   $row = $result->fetch_array();
-  //   $article = array(
-  //     'id' => htmlspecialchars($row['userid']),
-  //     'pw' => htmlspecialchars($row['password']),
-  //     'nickname' => htmlspecialchars($row['nickname'])
-  //   );
-  // }
+  //회원정보 쿼리문
+  $sql_userinfo = "SELECT userid, nickname FROM user WHERE userid = '{$_SESSION['userid']}';";
+  $result_userinfo = mysqli_query($mysqli, $sql_userinfo);
+  if ($result_userinfo->num_rows > 0) {
+    $row_userinfo = $result_userinfo->fetch_array();
+    $article_userinfo = array(
+      'id' => htmlspecialchars($row_userinfo['userid']),
+      'nickname' => htmlspecialchars($row_userinfo['nickname'])
+    );
+  }
+  //내가쓴 글 쿼리문, 카테고리, 제목, 좋아요
+  $sql_postinfo = "SELECT category, recipeName, likes
+                   FROM recipe, user
+                   WHERE recipe.nickname = user.nickname
+                   AND user.userid = '{$_SESSION['userid']}';";
+  $result_postinfo = mysqli_query($mysqli, $sql_postinfo);
+  if ($result_postinfo->num_rows > 0) {
+    $row_postinfo = $result_postinfo->fetch_array();
+    $article_postinfo = array(
+      'category' => htmlspecialchars($row_postinfo['category']),
+      'recipeName' => htmlspecialchars($row_postinfo['recipeName']),
+      'likes' => htmlspecialchars($row_postinfo['likes'])
+    );
+  }
  ?>
+
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
@@ -88,10 +103,18 @@ maximum-scale=1.0, minimum-scale=1.0">
             <section class="xm">
               <ul class="nav nav-tabs">
                   <h1>회원 정보</h1>
+                  <?php
+                    echo "<li>".$article_userinfo['id']."</li>";
+                    echo "<li>".$article_userinfo['nickname']."</li>";
+                   ?>
+                  <h1>내가 쓴 글</h1>
+                  <?php
+                    echo "<li>".$article_postinfo['category']."</li>";
+                    echo "<li>".$article_postinfo['recipeName']."</li>";
+                    echo "<li>".$article_postinfo['likes']."</li>";
+                   ?>
 
-                <li>
-                  <a>내가 쓴 글</a>
-                </li>
+
                 <li>
                   <a>내가 쓴 댓글</a>
                 </li>
@@ -103,9 +126,6 @@ maximum-scale=1.0, minimum-scale=1.0">
             </section>
           </div>
         </div>
-
-
-
     </main>
   </body>
 </html>
