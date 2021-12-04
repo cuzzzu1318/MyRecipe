@@ -69,15 +69,15 @@ maximum-scale=1.0, minimum-scale=1.0">
        			function(data){
        				if(data.result==1){ //만약 data값이 전송되면
        					$("i#empty").attr('class','fas fa-heart');
-                var cntv = $("span#cnt").text();
+                var cntv = $("div#cnt").text();
                 cntv*=1;
-                $("span#cnt").html(cntv+1);
+                $("div#cnt").html(cntv+1);
        					$("i#empty").css("color", "red");
        				}else{
                 $("i#empty").attr('class','far fa-heart');
-                var cntv = $("span#cnt").text();
+                var cntv = $("div#cnt").text();
                 cntv*=1;
-                $("span#cnt").html(cntv-1);
+                $("div#cnt").html(cntv-1);
        					$("i#empty").css("color", "black");
               }
        			},
@@ -92,7 +92,7 @@ maximum-scale=1.0, minimum-scale=1.0">
         function(data){
           if(data.result==1){ //만약 data값이 전송되면
             $('i#empty').attr('class','fas fa-heart');
-            $('i#empty').css("color", "blue");
+            $('i#empty').css("color", "red");
           }
         },
          'json'
@@ -106,9 +106,12 @@ maximum-scale=1.0, minimum-scale=1.0">
     </div>
       <div class="postHead">
         <div class="title"><?=$article['recipeName']?></div>
-        <div class="writeAndTime">
-          <div class="writer"><?=$article['nickname']?></div>
-          <div class="writer"><?=$article['uploadDate']?></div>
+        <div class="categoryAndWT">
+          <div class="category"><?=$article['category']?></div>
+          <div class="writeAndTime">
+            <div class="writer"><?=$article['nickname']?></div>
+            <div class="writer"><?=$article['uploadDate']?></div>
+          </div>
         </div>
       </div>
       <div class="post">
@@ -148,15 +151,24 @@ maximum-scale=1.0, minimum-scale=1.0">
         </div>
 
         </div>
-        <div <?php if(empty($_SESSION["userid"])){
-          echo 'style="display: none;"';
-        } ?> class="like" id="likes">
-          <div class="hiddenID" style="display: none;" <?php echo "id='".$article['postID']."'"; ?>></div>
-          <i class="far fa-heart" id="empty"></i>
-          <span id="cnt"><?=$article['like']?></span>
-
-        </div>
       </div>
     </main>
+    <div class="foot">
+      <div <?php if(empty($_SESSION["userid"])){
+        echo 'style="display: none;"';
+      } ?> class="like" id="likes">
+        <div class="hiddenID" style="display: none;" <?php echo "id='".$article['postID']."'"; ?>></div>
+        <i class="far fa-heart" id="empty"></i>
+        <div id="cnt"><?=$article['like']?></div>
+      </div>
+      <div id="comment" onclick="location.href='comments.php?postID=<?=$article['postID']?>'">
+        <?php
+          $sql_comment = "select COUNT(*) FROM comments WHERE postID = '{$article['postID']}'";
+          $result = $mysqli->query($sql_comment);
+          $row = $result->fetch_array(MYSQLI_BOTH);
+          echo "댓글 ".$row['COUNT(*)'];
+         ?>
+      </div>
+    </div>
   </body>
 </html>
