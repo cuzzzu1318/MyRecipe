@@ -26,13 +26,11 @@
                    WHERE recipe.nickname = user.nickname
                    AND user.userid = '{$_SESSION['userid']}';";
   $result_postinfo = mysqli_query($mysqli, $sql_postinfo);
-  if ($result_postinfo->num_rows > 0) {
-    $row_postinfo = $result_postinfo->fetch_array();
-    $article_postinfo = array(
-      'category' => htmlspecialchars($row_postinfo['category']),
-      'recipeName' => htmlspecialchars($row_postinfo['recipeName']),
-      'likes' => htmlspecialchars($row_postinfo['likes'])
-    );
+  $list='';
+  while($row_postinfo = mysqli_fetch_array($result_postinfo)){
+    $list = $list."<li>".$row_postinfo['category']."</li>";
+    $list = $list."<li>".$row_postinfo['recipeName']."</li>";
+    $list = $list."<li>".$row_postinfo['likes']."</li>";
   }
  ?>
 
@@ -109,18 +107,8 @@ maximum-scale=1.0, minimum-scale=1.0">
                    ?>
                   <h1>내가 쓴 글</h1>
                   <?php
-                    echo "<li>".$article_postinfo['category']."</li>";
-                    echo "<li>".$article_postinfo['recipeName']."</li>";
-                    echo "<li>".$article_postinfo['likes']."</li>";
+                    echo $list;
                    ?>
-
-
-                <li>
-                  <a>내가 쓴 댓글</a>
-                </li>
-                <li>
-                  <a>내가 좋아요 한 글</a>
-                </li>
               </ul>
               <input type="button" name="logout" value="로그아웃" onclick="location.href='logout.php'">
             </section>
