@@ -143,17 +143,6 @@ maximum-scale=1.0, minimum-scale=1.0">
               }
               $i++;
             }
-              // foreach ($data[0] as $value) {
-              //   echo "<div class='recipe'>".$value."</div>";
-              //  }
-              //  foreach ($data[1] as $value) {
-              //    if($value==""){
-              //    }else {
-              //      echo <<<pic
-              //      <img src="upload/$value" id = "pic">
-              //      pic;
-              //    }
-              // }
            ?>
           </div>
         </div>
