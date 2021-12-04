@@ -22,23 +22,33 @@ function GetUniqFileName($FN, $PN)
   $category = $mysqli->real_escape_string($_POST['category']);
   $cost = $mysqli->real_escape_string($_POST['cost']);
   $ingrediants = $mysqli->real_escape_string(implode('MRCUT',$_POST['ingredient']));
-  echo $ingredients.'<br>';
   $recipe = $mysqli->real_escape_string(implode('MRCUT',$_POST['recipe']));
   echo $recipe;
-  if (!empty($_FILES['image']['name'])) {
-      $dir = './image';
-      $name = GetUniqFileName($_FILES['image']['name'], $dir);
-      move_uploaded_file($_FILES['image']['tmp_name'], "$dir/$name");
+  if (!empty($_FILES['img_file']['name'])) {
+    $dir = './upload';
+    $img = $_FILES['img_file'];
+    $name = $img['name'];
+    $cnt = count($img['name']);
+     while ($cnt>0) {
+       if (!empty($img['name'][$cnt-1])) {
+         $img['name'][$cnt-1] = GetUniqFileName($img['name'][$cnt-1], $dir);
+         $cc = $img['name'][$cnt-1];
+       }
+       move_uploaded_file($img['tmp_name'][$cnt-1], "$dir/$cc");
+       $cnt--;
+     }
+    $name = implode(',', $img['name']);
       $sql = "
       INSERT INTO recipe
-        (category, recipeName, ingrediants, recipe, cost, nickname, uploadDate)
+        (category, recipeName, ingrediants, recipe, cost, nickname, img_name, uploadDate)
         VALUES(
-          '{$_POST['found']}',
-          '{$_POST['select']}',
-          '{$filterd['title']}',
-          '{$filterd['content']}',
+          '{$category}',
+          '{$recipeName}',
+          '{$ingrediants}',
+          '{$recipe}',
+          '{$cost}',
+          (SELECT nickname FROM user WHERE userid = '{$_SESSION['userid']}'),
           '{$name}',
-          '{$ip}',
           NOW()
         )
       ";

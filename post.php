@@ -1,5 +1,8 @@
 <?php
-session_start();
+$data = array(
+  array(),
+  array()
+);
   $mysqli = new mysqli("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
   if (isset($_GET['postID'])) {
     $postID = $_GET['postID'];
@@ -25,12 +28,16 @@ session_start();
         'cost' => htmlspecialchars($row['cost']),
         'like' => htmlspecialchars($row['likes']),
         'nickname' => htmlspecialchars($row['nickname']),
+        'img_name' => htmlspecialchars($row['img_name']),
         'uploadDate' => substr(htmlspecialchars($row['uploadDate']), 2, 14)
       );
     }else{
       echo '<script>alert("잘못된 접근입니다!");</script>';
       echo("<script>location.replace('list.php');</script>");
     }
+    $data[0] = explode('MRCUT', $article['recipe']);
+    $data[1] = explode(',', $article['img_name']);
+    $cnt = count($data[0]);
   }
 
 
@@ -110,8 +117,8 @@ maximum-scale=1.0, minimum-scale=1.0">
             재료
           </div>
           <div class="ingre"><?php
-            $ing = explode('MRCUT', $article['ingrediants']);
-            foreach ($ing as $value) {
+          $ingre = explode('MRCUT', $article['ingrediants']);
+            foreach ($ingre as $value) {
               echo "<div class='ing'>".$value."</div>";
            }
            ?></div>
@@ -123,12 +130,34 @@ maximum-scale=1.0, minimum-scale=1.0">
           </div>
           <div class="recipes">
             <?php
-              $recipe = explode('MRCUT', $article['recipe']);
-              foreach ($recipe as $value) {
-                echo "<div class='recipe'>".$value."</div>";
-               }
+            $i = 0;
+            while($i<$cnt){
+              $num = $i+1;
+              if($data[0][$i]!=""){
+                echo "<div class='cook'><div class='recipe'><h2>".$num."</h2>".$data[0][$i]."</div>";
+              }
+              if($data[1][$i]!=""){
+                echo "<img src='upload/".$data[1][$i]."' id='pic'></div>";
+              }else{
+                echo "</div>";
+              }
+              $i++;
+            }
+              // foreach ($data[0] as $value) {
+              //   echo "<div class='recipe'>".$value."</div>";
+              //  }
+              //  foreach ($data[1] as $value) {
+              //    if($value==""){
+              //    }else {
+              //      echo <<<pic
+              //      <img src="upload/$value" id = "pic">
+              //      pic;
+              //    }
+              // }
            ?>
           </div>
+        </div>
+
         </div>
         <div <?php if(empty($_SESSION["userid"])){
           echo 'style="display: none;"';
