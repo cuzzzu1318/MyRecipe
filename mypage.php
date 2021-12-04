@@ -21,16 +21,13 @@
     );
   }
   //내가쓴 글 쿼리문, 카테고리, 제목, 좋아요
-  $sql_postinfo = "SELECT category, recipeName, likes
-                   FROM recipe, user
-                   WHERE recipe.nickname = user.nickname
-                   AND user.userid = '{$_SESSION['userid']}';";
+  $sql_postinfo = "SELECT postID, category, recipeName, likes, nickname FROM recipe WHERE nickname = (SELECT nickname FROM user WHERE userid = '{$_SESSION['userid']}');";
   $result_postinfo = mysqli_query($mysqli, $sql_postinfo);
   $list='';
   while($row_postinfo = mysqli_fetch_array($result_postinfo)){
-    $list = $list."<li>".$row_postinfo['category']."</li>";
-    $list = $list."<li>".$row_postinfo['recipeName']."</li>";
-    $list = $list."<li>".$row_postinfo['likes']."</li>";
+    $list = $list."<div class='myPost'onclick='location.href=\"post.php?postID=".$row_postinfo['postID']."\"'><li>카테고리: ".$row_postinfo['category']."</li>";
+    $list = $list."<li>제목: ".$row_postinfo['recipeName']."</li>";
+    $list = $list."<li>좋아요: ".$row_postinfo['likes']."</li></div>";
   }
  ?>
 
@@ -101,16 +98,22 @@ maximum-scale=1.0, minimum-scale=1.0">
             <section class="xm">
               <ul class="nav nav-tabs">
                   <h1>회원 정보</h1>
-                  <?php
-                    echo "<li>".$article_userinfo['id']."</li>";
-                    echo "<li>".$article_userinfo['nickname']."</li>";
-                   ?>
+                  <div class="userInfo">
+                    <?php
+                      echo "<li>ID: ".$article_userinfo['id']."</li>";
+                      echo "<li>닉네임: ".$article_userinfo['nickname']."</li>";
+                     ?>
+                  </div>
                   <h1>내가 쓴 글</h1>
-                  <?php
-                    echo $list;
-                   ?>
+                  <div class="Post">
+                    <?php
+                      echo $list;
+                     ?>
+                  </div>
               </ul>
-              <input type="button" name="logout" value="로그아웃" onclick="location.href='logout.php'">
+              <div class="logout">
+                <input type="button" name="logout" value="로그아웃" onclick="location.href='logout.php'">
+              </div>
             </section>
           </div>
         </div>

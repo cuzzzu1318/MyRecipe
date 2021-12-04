@@ -1,0 +1,27 @@
+li{
+  list-style: none;
+}
+
+.myPost{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+li{
+  margin-bottom: 5px;
+}
+
+.Post,.userInfo{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid var(--main-color);
+  padding: 5px;
+}
+
+.logout{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

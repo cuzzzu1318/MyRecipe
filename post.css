@@ -89,7 +89,7 @@
 
 .recipeBox .recipes{
   margin-right: 10px;
-  flex-basis: 70%;
+  width: 70%;
 }
 
 .recipeBox .cook{
@@ -104,6 +104,7 @@
 
 .recipes #pic{
   min-width: 100px;
+  width: 100%;
 }
 
 .like{
