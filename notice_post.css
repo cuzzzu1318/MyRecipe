@@ -1,0 +1,32 @@
+.noticeMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  border: 1px solid var(--main-color);
+  margin: 5px auto;
+  min-height: 640px;
+}
+
+.noticeMain .noticeHeader{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--green-light-color);
+}
+
+.noticeMain .noticeHeader .title{
+  display: flex;
+  justify-content: center;
+}
+
+.noticeMain .noticeHeader .noticeDate{
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.noticeMain .notice{
+  width: 95%;
+}
