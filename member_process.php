@@ -38,6 +38,7 @@
     }
     if($pw == $article['pw']){
       $_SESSION['userid']=$article['id'];
+      $_SESSION['nickname']=$article['nickname'];
       $_SESSION['signin_time'] = time();
       ?>
       <script>

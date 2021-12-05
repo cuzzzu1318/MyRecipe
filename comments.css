@@ -38,11 +38,34 @@ h1{
   margin: 0 10px;
   padding-bottom: 10px;
 }
-.comments li{
-  list-style: none;
-  margin-bottom: 5px;
-  border-bottom: 1px solid #CCC;
+
+.comments{
+  display: flex;
+  flex-direction: column;
 }
+
+.comments .box{
+  width: 95%;
+  margin: 5px auto;
+  list-style: none;
+  border-bottom: 1px solid #CCC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comments .box .modifyAndDelete{
+  display: flex;
+}
+
+.comments .box .modify,.delete{
+  font-size: 15px;
+  margin-left: 5px;
+  color: white;
+  padding: 5px;
+  background-color: var(--main-color);
+}
+
 .view{
   width: 100%;
   box-sizing: border-box;

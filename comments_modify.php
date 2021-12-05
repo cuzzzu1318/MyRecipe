@@ -2,9 +2,7 @@
 session_start();
 $conn = mysqli_connect("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
 
-// $sql_nickname = "SELECT nickname FROM recipe WHERE postID = '{$_GET['postID']}'";
-// $result_nickname = mysqli_query($conn, $sql_nickname);
-// $row_nickname = mysqli_fetch_array($result_nickname);
+
 
 ?>
 <!DOCTYPE html>
@@ -24,24 +22,23 @@ maximum-scale=1.0, minimum-scale=1.0">
   <body>
     <header>
       <img class="icon" src="image/icon_back.svg" alt="back" onclick="history.back()">
-      <h1>댓글 보기</h1>
+      <h1>댓글 수정</h1>
     </header>
       <div class="comments">
         <?php
-        $sql = "SELECT * FROM comments WHERE postID='{$_GET['postID']}';";
+        $sql = "SELECT * FROM comments WHERE commentID='{$_GET['commentID']}';";
         $result = mysqli_query($conn, $sql);
-
+        ;
         while($row = mysqli_fetch_array($result)){
+          $comment = $row['comment'];
           echo <<<comments
           <div class='box'>
             <div class="text">
-              <div class="nickname"><strong>{$row['nickname']}</strong></div><div class="comment">{$row['comment']}</div></div>
+              <div class="nickname"><strong>수정할 댓글</strong></div><div class="comment">{$row['comment']}</div></div>
           comments;
           if($_SESSION['nickname']==$row['nickname']){
             echo <<<modify
                 <div class="modifyAndDelete">
-                  <div class ="modify"><a href="comments_modify.php?commentID={$row['commentID']}&postID={$_GET['postID']}">수정</a></div>
-                  <div class ="delete"><a href="comments_delete_process.php?commentID={$row['commentID']}&postID={$_GET['postID']}">삭제</a></div>
                 </div>
                 </div>
               modify;
@@ -54,21 +51,22 @@ maximum-scale=1.0, minimum-scale=1.0">
          </div>
       <footer>
         <div class="write_comment">
-          <form class="comment" action="comments_process.php" method="post">
+          <form class="comment" action="comments_modify_process.php" method="post">
             <div class="total">
               <div class="wrap_title">
                 <div class="title">
-                  <span>댓글 쓰기</span>
+                  <span>댓글 수정하기</span>
                 </div>
                 <div class="wrap_nickname">
                   <div class="nickname">
                     <span><?php echo $_SESSION["nickname"]; ?></span>
                   </div>
                   <div class="write">
-                      <textarea class="text" name= "textarea" onkeydown="resize(this)" onkeyup="resize(this)" cols="80" placeholder="댓글을 입력하시오."></textarea>
+                      <textarea class="text" name= "textarea" onkeydown="resize(this)" onkeyup="resize(this)" cols="80"><?php echo $comment; ?></textarea>
                       <input type = "hidden" name = "postID" value ="<?php echo $_GET['postID'];?>">
+                      <input type = "hidden" name = "commentID" value ="<?php echo $_GET['commentID']; ?>">
                       <input type = "hidden" name = "nickname" value ="<?php echo  $_SESSION["nickname"];?>"/>
-                      <input type="submit" class="store" name="submit" value="등록">
+                      <input type="submit" class="store" name="submit" value="수정">
                   </div>
                 </div>
               </div>
