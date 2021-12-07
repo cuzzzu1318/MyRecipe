@@ -26,9 +26,9 @@ maximum-scale=1.0, minimum-scale=1.0">
     </header>
       <div class="comments">
         <?php
-        $sql = "SELECT * FROM comments WHERE commentID='{$_GET['commentID']}';";
+        $sql = "SELECT * FROM comments WHERE commentID= {$_GET['commentID']};";
         $result = mysqli_query($conn, $sql);
-        ;
+
         while($row = mysqli_fetch_array($result)){
           $comment = $row['comment'];
           echo <<<comments
