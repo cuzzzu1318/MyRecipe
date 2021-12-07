@@ -100,10 +100,17 @@ maximum-scale=1.0, minimum-scale=1.0">
      });
     </script>
     <main class="description">
-    <div class="modAndDel">
-      <a href="">수정</a>
-      <a href="">삭제</a>
-    </div>
+      <?php
+        if($_SESSION['nickname']==$article['nickname']){
+          echo <<<mode
+          <div class="modAndDel">
+            <a href="modify.php?postID=$postID">수정</a>
+            <a href="delete.php?postID=$postID">삭제</a>
+          </div>
+          mode;
+        }
+       ?>
+
       <div class="postHead">
         <div class="title"><?=$article['recipeName']?></div>
         <div class="categoryAndWT">

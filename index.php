@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
+    <link rel="favicon" href="image/favicon.ico">
     <meta charset="utf-8"  name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,
 maximum-scale=1.0, minimum-scale=1.0">
     <title>MyRecipe</title>
