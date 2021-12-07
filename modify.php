@@ -8,8 +8,9 @@
   $mysqli = new mysqli("localhost", "myrecipe", "thwnrhdgkr202!", "myrecipe");
   $postID = $_GET['postID'];
   $userID = $_SESSION['userid'];
+  $nickname = $_SESSION['nickname'];
   //게시글 작성자인지 확인
-  $sql = "SELECT * FROM recipe WHERE postid='{$postID}' AND nickname=(SELECT nickname FROM user WHERE userid='{$userID}')";
+  $sql = "SELECT * FROM recipe WHERE postid='{$postID}' AND nickname='{$nickname}'";
   $result = $mysqli->query($sql);
   if ($result->num_rows > 0) {
     $row = $result->fetch_array(MYSQLI_BOTH);
