@@ -113,6 +113,7 @@ maximum-scale=1.0, minimum-scale=1.0">
               </ul>
               <div class="logout">
                 <input type="button" name="logout" value="로그아웃" onclick="location.href='logout.php'">
+                <input type="button" name="withdrawal" value="회원탈퇴" onclick="location.href='withdrawal.php'">
               </div>
             </section>
           </div>
