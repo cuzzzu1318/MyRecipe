@@ -105,7 +105,7 @@ maximum-scale=1.0, minimum-scale=1.0">
           echo <<<mode
           <div class="modAndDel">
             <a href="modify.php?postID=$postID">수정</a>
-            <a href="">삭제</a>
+            <a href="delete.php?postID=$postID">삭제</a>
           </div>
           mode;
         }
